@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+@mixin income_expense {
+   border-radius: 5px;
+   padding: 0 10px;
+
+   >span {
+      font-size: 13px;
+      color: $background-dubble;
+
+      >span {
+         color: $background-dubble;
+      }
+   }
+}
+
+.wrapper {
+   @include block;
+
+   >.income {
+      @include income_expense;
+      margin-bottom: 10px;
+      background-color: $color-green;
+   }
+
+   >.expense {
+      @include income_expense;
+      background-color: $color-purple;
+   }
+}

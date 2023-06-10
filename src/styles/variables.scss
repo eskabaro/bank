@@ -1,0 +1,51 @@
+$background: rgb(26, 27, 30);
+$background-dubble: rgb(15, 16, 19);
+$border-radius-block: 15px; // border-radius for blocks
+$color-purple: #836EFC;
+$color-green: #12E4BA;
+$padding-form: 30px 50px;
+$error-color: #ff0000;
+$opacity-color: rgba(255, 255, 255, 0.4);
+
+@mixin button {
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all .1s ease;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:active {
+        transform: scale(.99);
+    }
+}
+
+@mixin block {
+    background-color: $background-dubble;
+    border-radius: $border-radius-block;
+    padding: 20px;
+    color: #ffffff;
+}
+
+@mixin label__input {
+    border-radius: 5px;
+    background-color: $background-dubble;
+
+    >input {
+        color: #fff;
+        padding-left: 10px !important;
+        padding: 5px;
+        width: 100%;
+        background: transparent;
+        border: none;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}

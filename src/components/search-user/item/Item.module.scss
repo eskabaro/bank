@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+.item {
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #474747;
+    width: 100%;
+    padding: 4px 4px 4px 10px;
+    transition: all .2s ease;
+    display: flex;
+    align-items: center;
+    transform: scale(0);
+    visibility: hidden;
+
+    &.active {
+        transform: scale(1);
+        visibility: visible;
+    }
+
+    >span {
+        padding-left: 10px;
+    }
+
+    &:hover {
+        background-color: #585858;
+    }
+}

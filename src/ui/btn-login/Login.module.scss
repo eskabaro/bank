@@ -1,0 +1,8 @@
+@import '../../styles/variables.scss';
+
+.btn {
+    >button {
+        @include button;
+        background-color: $background-dubble;
+    }
+}

@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    @include block;
+    display: flex;
+    justify-content: space-around;
+
+    >div {
+        text-align: center;
+
+        >h4 {
+            color: $opacity-color;
+        }
+
+        >span {
+            cursor: default;
+        }
+    }
+}

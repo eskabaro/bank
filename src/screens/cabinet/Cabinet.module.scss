@@ -1,0 +1,21 @@
+@mixin block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: "block1 block1 block2";
+    gap: 20px;
+
+    &__block1 {
+        @include block;
+        grid-area: block1;
+    }
+
+    &__block2 {
+        @include block;
+        grid-area: block2;
+    }
+}
