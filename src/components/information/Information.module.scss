@@ -12,7 +12,7 @@
 .wrapper {
    text-align: center;
    overflow-y: scroll;
-   max-height: 500px;
+   max-height: 100vh;
    border-radius: 20px;
 
    &::-webkit-scrollbar {

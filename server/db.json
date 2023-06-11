@@ -1,51 +1,15 @@
 {
   "users": [
     {
-      "id": "1684774651302",
-      "login": "Eskabaro",
-      "password": "1",
-      "avatar": "/animals/crab-3969778.png",
-      "balance": 600,
-      "card": {
-        "number": "5723398147680712",
-        "date": "05/28",
-        "cvv": 620
-      }
-    },
-    {
-      "id": "1686247913785",
-      "login": "Alla",
+      "id": "1686489741352",
+      "login": "pegy",
       "password": "123asd!@#",
-      "avatar": "/animals/mouse-3969805.png",
-      "balance": 6100,
+      "avatar": "/animals/pig-3969799.png",
+      "balance": 1716,
       "card": {
-        "number": "7365554074730123",
+        "number": "4474965044562566",
         "date": "06/28",
-        "cvv": 79
-      }
-    },
-    {
-      "id": "1686323147989",
-      "login": "sasa",
-      "password": "123asD!@#",
-      "avatar": "/animals/walrus-3969761.png",
-      "balance": 100,
-      "card": {
-        "number": "3218337911703175",
-        "date": "06/28",
-        "cvv": 7
-      }
-    },
-    {
-      "id": "1686323327530",
-      "login": "dada",
-      "password": "asd123!@#",
-      "avatar": "/animals/mouse-3969805.png",
-      "balance": 0,
-      "card": {
-        "number": "9499639269676081",
-        "date": "06/28",
-        "cvv": 716
+        "cvv": 143
       }
     }
   ]

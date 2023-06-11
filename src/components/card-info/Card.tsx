@@ -62,7 +62,7 @@ export const Card: FC<IProps> = ({ card }) => {
                     end={newBalance}
                     duration={1}
                     separator=","
-                    suffix="₴" />
+                    suffix=" ₴" />
             </span>
         </div>
     </div>
