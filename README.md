@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-In order to run the application, write the command "npm run go" in the terminal
+In order to run the application, write the following command in the terminal
+
+```bash
+npm run go
+```
 
 First, run the development server:
 
