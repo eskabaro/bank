@@ -6,6 +6,8 @@ In order to run the application, write the following command in the terminal
 
 ```bash
 npm run go
+# or 
+yarn go
 ```
 
 First, run the development server:
