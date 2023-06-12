@@ -1,11 +1,14 @@
+// colors 
 $background: rgb(26, 27, 30);
 $background-dubble: rgb(15, 16, 19);
-$border-radius-block: 15px; // border-radius for blocks
 $color-purple: #836EFC;
 $color-green: #12E4BA;
-$padding-form: 30px 50px;
 $error-color: #ff0000;
 $opacity-color: rgba(255, 255, 255, 0.4);
+
+// rest
+$border-radius-block: 15px; // border-radius for blocks
+$padding-form: 30px 50px;
 
 @mixin button {
     color: #ffffff;
@@ -47,5 +50,17 @@ $opacity-color: rgba(255, 255, 255, 0.4);
             -webkit-appearance: none;
             margin: 0;
         }
+    }
+}
+
+@mixin scrollbar {
+    &::-webkit-scrollbar {
+        padding-right: 10px;
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $background-dubble;
+        border-radius: 10px;
     }
 }

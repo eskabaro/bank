@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { UsersService } from "@/services/user.service";
 import { CardUtils } from "@/utilities/card.utils";
-import s from './Register.module.scss'
 import { AvatarUutils } from "@/utilities/avatar.utils";
+import s from './Register.module.scss'
 
 interface IFormInput {
     login: string,

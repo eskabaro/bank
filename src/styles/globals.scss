@@ -8,6 +8,7 @@
 
 html,
 body {
+  @include scrollbar;
   max-width: 100vw;
   overflow-x: hidden;
   background-color: $background;
@@ -18,7 +19,14 @@ a {
   color: inherit;
 }
 
-a, span, p, h1, h2, h3, h4, h5 {
+a,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
   color: #fff;
   letter-spacing: 1px;
 }
@@ -34,4 +42,3 @@ input {
 button {
   cursor: pointer;
 }
-  

@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Layout } from "@/components/layout";
 import { Cabinet } from "@/screens/cabinet";
-import type { UserDataSingle } from "@/interfaces/data";
 import { useAppDispatch } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
+import type { UserDataSingle } from "@/interfaces/data";
 
 const CabinetPage: NextPage<UserDataSingle> = ({ user }) => {
     const router = useRouter()

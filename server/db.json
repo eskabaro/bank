@@ -2,14 +2,26 @@
   "users": [
     {
       "id": "1686489741352",
-      "login": "pegy",
-      "password": "123asd!@#",
+      "login": "user_1",
+      "password": "user",
       "avatar": "/animals/pig-3969799.png",
-      "balance": 1716,
+      "balance": 461226,
       "card": {
         "number": "4474965044562566",
         "date": "06/28",
-        "cvv": 143
+        "cvv": 419
+      }
+    },
+    {
+      "id": "1686491436490",
+      "login": "user_2",
+      "password": "user",
+      "avatar": "/animals/rabbit-3969777.png",
+      "balance": 0,
+      "card": {
+        "number": "4178980346623551",
+        "date": "06/28",
+        "cvv": 878
       }
     }
   ]
