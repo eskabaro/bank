@@ -9,6 +9,7 @@ import { Item } from "./friend-item";
 import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
 import s from './Transfer.module.scss'
+import { InformationService } from "@/services/information.service";
 
 export interface IFormInput {
     number: string
@@ -33,14 +34,16 @@ export const Transfer: FC<IProps> = ({ id, cardNumber }) => {
     const transfer: SubmitHandler<IFormInput> = (data): void => {
         TransferService.handleNumber(data.number, cardNumber).then(res => {
             if (res) {
-                const amount = prompt('Enter amount:')
+                const amount = prompt(`Enter amount for ${res.userName}:`)
                 if (amount && regex.test(amount) && parseInt(amount) <= balance) {
                     TransferService.transfer(res.id, res.balance, parseInt(amount))
                         .finally(() => {
                             TransferService.transForAutUser(id, balance, parseInt(amount))
                             dispatch(setBalance(balance - parseInt(amount)))
                             dispatch(setExpense(parseInt(amount)))
-                            dispatch(addNewBlock({amount: parseInt(amount), name: 'Expense'}))
+                            InformationService.addNewBlock(parseInt(amount), id, 'EXPENSE', res.id).then(res => {
+                                dispatch(addNewBlock(res))
+                            })
                         })
                     reset()
                 }

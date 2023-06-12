@@ -1,17 +1,21 @@
 import { FC, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "@/store/hook";
+import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBlocks } from "@/store/slices/informations";
 import { GetDate } from "@/utilities/getDate.utils";
-import Image from "next/image";
+import type { IStatisticBlock } from "@/interfaces/data";
 import s from './Information.module.scss'
 
-export const Information: FC = () => {
-   const blocks = useAppSelector(state => state.informations.blocks)
+interface IProps {
+   infoBlocks: IStatisticBlock[]
+}
+
+export const Information: FC<IProps> = ({ infoBlocks }) => {
    const dispatch = useAppDispatch()
+   const blocks = useAppSelector(state => state.informations.blocks)
 
    useEffect(() => {
-      const blocksStorage = localStorage.getItem('informations')
-      if (blocksStorage) dispatch(setBlocks(JSON.parse(blocksStorage)))
+      dispatch(setBlocks(infoBlocks))
    }, [])
 
    return <div className={s.wrapper}>

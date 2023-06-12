@@ -5,24 +5,78 @@
       "login": "user_1",
       "password": "user",
       "avatar": "/animals/pig-3969799.png",
-      "balance": 461226,
+      "balance": 348230,
       "card": {
         "number": "4474965044562566",
         "date": "06/28",
         "cvv": 419
-      }
+      },
+      "infoBlocks": [
+        {
+          "date": "Mon Jun 12 2023 15:25:10 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 111
+        },
+        {
+          "date": "Mon Jun 12 2023 15:26:41 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 11
+        },
+        {
+          "date": "Mon Jun 12 2023 15:26:46 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 111331
+        },
+        {
+          "date": "Mon Jun 12 2023 15:27:20 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 144
+        },
+        {
+          "date": "Mon Jun 12 2023 15:28:03 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 133
+        },
+        {
+          "date": "Mon Jun 12 2023 15:32:46 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 333
+        }
+      ]
     },
     {
       "id": "1686491436490",
       "login": "user_2",
       "password": "user",
       "avatar": "/animals/rabbit-3969777.png",
-      "balance": 0,
+      "balance": 2505,
       "card": {
         "number": "4178980346623551",
         "date": "06/28",
         "cvv": 878
-      }
+      },
+      "infoBlocks": [
+        {
+          "date": "Mon Jun 12 2023 15:28:03 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 133
+        },
+        {
+          "date": "Mon Jun 12 2023 15:30:59 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 123
+        },
+        {
+          "date": "Mon Jun 12 2023 15:31:18 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 333
+        },
+        {
+          "date": "Mon Jun 12 2023 15:32:46 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 333
+        }
+      ]
     }
   ]
 }

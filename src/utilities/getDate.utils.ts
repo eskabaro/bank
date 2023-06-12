@@ -3,7 +3,9 @@ export const GetDate = {
       const monthIndex = new Date(date).getMonth();
       const monthFullName = new Date(0, monthIndex).toLocaleString('en-US', { month: 'long' });
 
-      const day = String(new Date(date).getDay())
+      const day = new Date(date).getDate().toString();
+   
+      console.log(day);
 
       const year = String(new Date(date).getFullYear())
 

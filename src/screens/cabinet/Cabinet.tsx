@@ -11,7 +11,7 @@ export const Cabinet: FC<UserDataSingle> = ({ user }) => {
     return <main className={s.container}>
         <section className={s.container__block1}>
             <Card card={user.card} />
-            <Information />
+            <Information infoBlocks={user.infoBlocks} />
         </section>
         <section className={s.container__block2}>
             <Statistics />

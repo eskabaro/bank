@@ -11,7 +11,8 @@ export const TransferService = {
             if (handleUser && handleUser.card.number !== cardNumber) {
                 return {
                     balance: handleUser.balance,
-                    id: handleUser.id
+                    id: handleUser.id,
+                    userName: handleUser.login
                 }
             } else return null
         } catch (error) {

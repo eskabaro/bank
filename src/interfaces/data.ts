@@ -5,6 +5,13 @@ export interface User {
     card: ICard
     avatar: string
     balance: number
+    infoBlocks: IStatisticBlock[]
+}
+
+export interface IStatisticBlock {
+    name: string
+    date: string
+    amount: number
 }
 
 export interface ICard {
@@ -14,7 +21,6 @@ export interface ICard {
 }
 
 export interface Users {
-    // map(arg: (e: User) => User): Users
     users: User[]
 }
 
