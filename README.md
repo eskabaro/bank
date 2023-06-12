@@ -2,14 +2,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+In order to run the application, write the following command in the terminal
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm run go
+# or 
+yarn go
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
