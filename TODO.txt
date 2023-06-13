@@ -1,0 +1,4 @@
+--- create util for user object creater 
+--- fix bag with redirect login page
+--- fix bag with error in input (login) on register page  
+--- add types for api fetch request

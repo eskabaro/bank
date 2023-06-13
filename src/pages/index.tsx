@@ -2,7 +2,9 @@ import { GetServerSideProps, NextPage } from "next";
 import { UsersService } from "@/services/user.service";
 import type { Users } from "@/interfaces/data";
 
-const HomePage: NextPage = () => null
+const HomePage: NextPage = () => {
+  return null
+}
 
 export const getServerSideProps: GetServerSideProps<Users> = async () => {
   const users = await UsersService.getUsers()
@@ -25,7 +27,7 @@ export const getServerSideProps: GetServerSideProps<Users> = async () => {
 
   return {
     props: { users }
-}
+  }
 }
 
 export default HomePage

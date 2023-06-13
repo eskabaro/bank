@@ -31,7 +31,7 @@ export const Register: FC<IProps> = ({ numbers }) => {
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
         UsersService.handleUserLogin(data.login).then(res => {
-            
+            // TODO: create util for user object ====================
             if (!res?.data.length) {
                 const user = {
                     id: String(Date.now()),
@@ -39,14 +39,15 @@ export const Register: FC<IProps> = ({ numbers }) => {
                     password: data.password,
                     avatar: AvatarUutils.setAvatar(),
                     balance: 0,
+                    income: 0,
+                    expense: 0,
                     card: {
                         number: CardUtils.createCardNumber(numbers),
                         date: CardUtils.createCardDate(),
                         cvv: CardUtils.createCardCvv()
-                    }
+                    },
+                    infoBlocks: []
                 }
-                localStorage.setItem('income', '0')
-                localStorage.setItem('expense', '0')
                 UsersService.addNewUser(user).finally(() => {
                     route.push('/login')
                 })

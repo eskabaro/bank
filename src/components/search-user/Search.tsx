@@ -16,9 +16,7 @@ export const Search: FC<IProps> = ({ name }) => {
     useEffect(() => {
         UsersService.getUsersByName()
             .then(res => {
-                if (res) {
-                    setUsers(res.filter(e => e.login !== name))
-                }
+                if (res) setUsers(res.filter(e => e.login !== name))
             })
     }, [])
 

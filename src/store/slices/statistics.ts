@@ -16,11 +16,9 @@ const statisticsSlice = createSlice({
    reducers: {
       setIncome: (state, action: PayloadAction<number>) => {
          state.income += action.payload
-         localStorage.setItem('income', JSON.stringify(state.income))
       },
       setExpense: (state, action: PayloadAction<number>) => {
          state.expense += action.payload
-         localStorage.setItem('expense', JSON.stringify(state.expense))
       },
       setWithUseEffect: (state, action: PayloadAction<IPayload>) => {
          if (action.payload.type === 'SET_INCOME') {

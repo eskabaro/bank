@@ -31,7 +31,6 @@ const Informations = createSlice({
             amount: action.payload.amount
          }
          state.blocks.push(block)
-         localStorage.setItem('informations', JSON.stringify(state.blocks))
       },
       setBlocks: (state, action: PayloadAction<IBlock[]>) => {
          state.blocks = action.payload

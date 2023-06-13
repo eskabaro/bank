@@ -6,8 +6,9 @@ import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
 import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
-import s from './Item.module.scss';
 import { InformationService } from "@/services/information.service";
+import { StatisticService } from "@/services/statistic.service";
+import s from './Item.module.scss';
 
 interface IProps {
    id: string,
@@ -16,9 +17,10 @@ interface IProps {
    cardNumber: string,
    cardNumberFriend: string,
    idAuthUser: string
+   expense: number
 }
 
-export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFriend, idAuthUser }) => {
+export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFriend, idAuthUser, expense }) => {
    const balance = useAppSelector(state => state.transaction.balance)
    const dispatch = useAppDispatch()
    const [active, setActive] = useState(false)
@@ -34,7 +36,9 @@ export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFrien
                   .finally(() => {
                      TransferService.transForAutUser(idAuthUser, balance, parseInt(amount))
                      dispatch(setBalance(balance - parseInt(amount)))
-                     dispatch(setExpense(parseInt(amount)))
+                     StatisticService.setStatistic(idAuthUser, parseInt(amount), undefined, expense, id).finally(() => {
+                        dispatch(setExpense(parseInt(amount)))
+                     })
                      InformationService.addNewBlock(parseInt(amount), idAuthUser, 'EXPENSE', id).then(res => {
                         dispatch(addNewBlock(res))
                      })

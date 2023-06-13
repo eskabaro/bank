@@ -4,29 +4,32 @@ import { setWithUseEffect } from "@/store/slices/statistics";
 import { Circle } from "./circle";
 import dynamic from 'next/dynamic';
 import s from './Statistics.module.scss'
+import { StatisticService } from "@/services/statistic.service";
 
 const CountUp = dynamic(() => import('react-countup'), { ssr: false });
 
-export const Statistics: FC = () => {
+interface IProps {
+   income: number,
+   expense: number
+}
+
+export const Statistics: FC<IProps> = ({ income, expense }) => {
    const statistics = useAppSelector(state => state.statistics)
    const dispatch = useAppDispatch()
 
    useEffect(() => {
-      const income = localStorage.getItem('income')
-      const expense = localStorage.getItem('expense')
-
-      if (income !== null) dispatch(setWithUseEffect({ type: 'SET_INCOME', value: parseInt(income) }))
-      if (expense !== null) dispatch(setWithUseEffect({ type: 'SET_EXPENSE', value: parseInt(expense) }))
+      dispatch(setWithUseEffect({ type: 'SET_INCOME', value: income }))
+      dispatch(setWithUseEffect({ type: 'SET_EXPENSE', value: expense }))
    }, [])
 
    useEffect(() => {
       const timer = setTimeout(() => {
-         setCountIncome(statistics.income);
+         setCountIncome(statistics.income)
          setCountExpense(statistics.expense)
-      }, 500);
+      }, 500)
 
-      return () => clearTimeout(timer);
-   }, [statistics]);
+      return () => clearTimeout(timer)
+   }, [statistics])
 
    const [countIncome, setCountIncome] = useState<number>(statistics.income)
    const [countExpense, setCountExpense] = useState<number>(statistics.expense)

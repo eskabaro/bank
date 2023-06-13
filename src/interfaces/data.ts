@@ -5,6 +5,8 @@ export interface User {
     card: ICard
     avatar: string
     balance: number
+    income: number
+    expense: number
     infoBlocks: IStatisticBlock[]
 }
 

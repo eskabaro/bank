@@ -10,6 +10,7 @@ import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
 import s from './Transfer.module.scss'
 import { InformationService } from "@/services/information.service";
+import { StatisticService } from "@/services/statistic.service";
 
 export interface IFormInput {
     number: string
@@ -18,9 +19,11 @@ export interface IFormInput {
 interface IProps {
     id: string,
     cardNumber: string
+    income: number
+    expense: number
 }
 
-export const Transfer: FC<IProps> = ({ id, cardNumber }) => {
+export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income }) => {
     const balance = useAppSelector(state => state.transaction.balance)
     const dispatch = useAppDispatch()
     const regex = /^[0-9]+$/
@@ -40,7 +43,9 @@ export const Transfer: FC<IProps> = ({ id, cardNumber }) => {
                         .finally(() => {
                             TransferService.transForAutUser(id, balance, parseInt(amount))
                             dispatch(setBalance(balance - parseInt(amount)))
-                            dispatch(setExpense(parseInt(amount)))
+                            StatisticService.setStatistic(id, parseInt(amount), undefined, expense, res.id).finally(() => {
+                                dispatch(setExpense(parseInt(amount)))
+                            })
                             InformationService.addNewBlock(parseInt(amount), id, 'EXPENSE', res.id).then(res => {
                                 dispatch(addNewBlock(res))
                             })
@@ -79,7 +84,8 @@ export const Transfer: FC<IProps> = ({ id, cardNumber }) => {
                         name={e.login}
                         avatar={e.avatar}
                         cardNumber={cardNumber}
-                        cardNumberFriend={e.card.number} />
+                        cardNumberFriend={e.card.number}
+                        expense={expense} />
                 )}
         </div>
     </form>
