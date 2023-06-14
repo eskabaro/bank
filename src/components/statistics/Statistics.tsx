@@ -4,7 +4,6 @@ import { setWithUseEffect } from "@/store/slices/statistics";
 import { Circle } from "./circle";
 import dynamic from 'next/dynamic';
 import s from './Statistics.module.scss'
-import { StatisticService } from "@/services/statistic.service";
 
 const CountUp = dynamic(() => import('react-countup'), { ssr: false });
 
