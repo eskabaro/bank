@@ -42,7 +42,6 @@ export const UsersService = {
         try {
            const data = await axios.get(`/users?login=${login}`)
            return data
-           
         } catch (error) {
             console.error(error)
         }

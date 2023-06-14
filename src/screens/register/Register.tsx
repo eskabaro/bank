@@ -2,11 +2,10 @@ import { FC, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { UsersService } from "@/services/user.service";
-import { CardUtils } from "@/utilities/card.utils";
-import { AvatarUutils } from "@/utilities/avatar.utils";
 import s from './Register.module.scss'
+import { CreateUserUtils } from "@/utilities/create.user.utils";
 
-interface IFormInput {
+export interface IFormInput {
     login: string,
     password: string,
     reapetPassword: string
@@ -31,26 +30,9 @@ export const Register: FC<IProps> = ({ numbers }) => {
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
         UsersService.handleUserLogin(data.login).then(res => {
-            // TODO: create util for user object ====================
             if (!res?.data.length) {
-                const user = {
-                    id: String(Date.now()),
-                    login: data.login,
-                    password: data.password,
-                    avatar: AvatarUutils.setAvatar(),
-                    balance: 0,
-                    income: 0,
-                    expense: 0,
-                    card: {
-                        number: CardUtils.createCardNumber(numbers),
-                        date: CardUtils.createCardDate(),
-                        cvv: CardUtils.createCardCvv()
-                    },
-                    infoBlocks: []
-                }
-                UsersService.addNewUser(user).finally(() => {
-                    route.push('/login')
-                })
+                UsersService.addNewUser(CreateUserUtils.createUser(data, numbers))
+                    .finally(() => route.push('/login'))
             } else setErrorLogin('This name is already taken')
         })
     }

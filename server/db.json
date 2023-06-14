@@ -5,9 +5,9 @@
       "login": "user",
       "password": "1",
       "avatar": "/animals/panda-3969735.png",
-      "balance": 121536,
-      "income": 123903,
-      "expense": 1741,
+      "balance": 121313,
+      "income": 124126,
+      "expense": 2087,
       "card": {
         "number": "4806261663675407",
         "date": "06/28",
@@ -113,6 +113,36 @@
           "date": "Tue Jun 13 2023 13:23:11 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Expense",
           "amount": 1000
+        },
+        {
+          "date": "Tue Jun 13 2023 13:37:24 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 123
+        },
+        {
+          "date": "Tue Jun 13 2023 13:37:31 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 123
+        },
+        {
+          "date": "Tue Jun 13 2023 13:37:37 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 123
+        },
+        {
+          "date": "Wed Jun 14 2023 13:02:20 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 100
+        },
+        {
+          "date": "Wed Jun 14 2023 13:02:23 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 100
+        },
+        {
+          "date": "Wed Jun 14 2023 13:02:27 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 100
         }
       ]
     },
@@ -121,7 +151,7 @@
       "login": "peggy",
       "password": "asd123!@#",
       "avatar": "/animals/frog-3969785.png",
-      "balance": 2336,
+      "balance": 2559,
       "income": 113,
       "expense": 495,
       "card": {
@@ -214,8 +244,48 @@
           "date": "Tue Jun 13 2023 13:21:54 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
           "amount": 123
+        },
+        {
+          "date": "Tue Jun 13 2023 13:37:37 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 123
+        },
+        {
+          "date": "Wed Jun 14 2023 13:02:27 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 100
         }
       ]
+    },
+    {
+      "id": "1686736977759",
+      "login": "Eskabaro",
+      "password": "123asd!@#",
+      "avatar": "/animals/snake-3969724.png",
+      "balance": 0,
+      "income": 0,
+      "expense": 0,
+      "card": {
+        "number": "3991450420628874",
+        "date": "06/28",
+        "cvv": 283
+      },
+      "infoBlocks": []
+    },
+    {
+      "id": "1686737708756",
+      "login": "gege",
+      "password": "asd123~!#",
+      "avatar": "/animals/elephant-3969722.png",
+      "balance": 0,
+      "income": 0,
+      "expense": 0,
+      "card": {
+        "number": "0205247626967327",
+        "date": "06/28",
+        "cvv": 184
+      },
+      "infoBlocks": []
     }
   ]
 }
