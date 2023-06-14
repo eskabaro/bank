@@ -1,256 +1,79 @@
 {
   "users": [
     {
-      "id": "1686594968762",
+      "id": "1686762636987",
       "login": "user",
       "password": "1",
-      "avatar": "/animals/panda-3969735.png",
-      "balance": 121681,
-      "income": 124617,
-      "expense": 124,
+      "avatar": "/animals/elephant-3969722.png",
+      "balance": 325,
+      "income": 325,
+      "expense": 0,
       "card": {
-        "number": "4806261663675407",
+        "number": "6553327715752263",
         "date": "06/28",
-        "cvv": 977
+        "cvv": 693
       },
       "infoBlocks": [
         {
-          "date": "Tue Jun 13 2023 12:50:57 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Wed Jun 14 2023 23:12:31 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "amount": 100
+        },
+        {
+          "date": "Wed Jun 14 2023 23:12:52 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
           "amount": 1
         },
         {
-          "date": "Tue Jun 13 2023 12:53:29 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Wed Jun 14 2023 23:14:21 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
-          "amount": 12
+          "amount": 100
         },
         {
-          "date": "Tue Jun 13 2023 12:54:53 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Wed Jun 14 2023 23:14:31 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
           "amount": 1
         },
         {
-          "date": "Tue Jun 13 2023 13:04:33 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 12
-        },
-        {
-          "date": "Tue Jun 13 2023 13:05:24 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 12
-        },
-        {
-          "date": "Tue Jun 13 2023 13:05:41 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 1
-        },
-        {
-          "date": "Tue Jun 13 2023 13:06:50 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 1
-        },
-        {
-          "date": "Tue Jun 13 2023 13:10:19 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 1
-        },
-        {
-          "date": "Tue Jun 13 2023 13:12:20 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 1123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:12:21 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Wed Jun 14 2023 23:17:35 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
           "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:14:17 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:14:22 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:14:31 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:14:35 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:15:26 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:16:19 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:19:49 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:21:54 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:23:00 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 1000
-        },
-        {
-          "date": "Tue Jun 13 2023 13:23:11 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 1000
-        },
-        {
-          "date": "Tue Jun 13 2023 13:37:24 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:37:31 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Tue Jun 13 2023 13:37:37 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "date": "Wed Jun 14 2023 13:02:20 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 100
-        },
-        {
-          "date": "Wed Jun 14 2023 13:02:23 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 100
-        },
-        {
-          "date": "Wed Jun 14 2023 13:02:27 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 100
-        },
-        {
-          "date": "Wed Jun 14 2023 13:49:41 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Wed Jun 14 2023 13:49:58 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Wed Jun 14 2023 13:50:23 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Wed Jun 14 2023 14:00:06 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 122
-        },
-        {
-          "date": "Wed Jun 14 2023 14:00:17 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        }
-      ],
-      "exepse": 1
-    },
-    {
-      "id": "1686595154879",
-      "login": "peggy",
-      "password": "asd123!@#",
-      "avatar": "/animals/frog-3969785.png",
-      "balance": 100,
-      "income": 200,
-      "expense": 100,
-      "card": {
-        "number": "5817443559448130",
-        "date": "06/28",
-        "cvv": 293
-      },
-      "infoBlocks": [
-        {
-          "date": "Wed Jun 14 2023 14:40:40 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 100
-        },
-        {
-          "date": "Wed Jun 14 2023 14:40:55 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 100
-        },
-        {
-          "date": "Wed Jun 14 2023 14:41:04 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 100
         }
       ]
     },
     {
-      "id": "1686736977759",
+      "id": "1686762916758",
       "login": "Eskabaro",
-      "password": "123asd!@#",
-      "avatar": "/animals/snake-3969724.png",
-      "balance": 0,
-      "income": 0,
-      "expense": 0,
-      "card": {
-        "number": "3991450420628874",
-        "date": "06/28",
-        "cvv": 283
-      },
-      "infoBlocks": []
-    },
-    {
-      "id": "1686737708756",
-      "login": "gege",
-      "password": "asd123~!#",
+      "password": "1",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 222,
-      "income": 123,
-      "expense": 12,
+      "balance": 775,
+      "income": 100,
+      "expense": 324,
       "card": {
-        "number": "0205247626967327",
+        "number": "7612006263356545",
         "date": "06/28",
-        "cvv": 184
+        "cvv": 562
       },
       "infoBlocks": [
         {
-          "date": "Wed Jun 14 2023 13:35:35 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Wed Jun 14 2023 13:35:38 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Wed Jun 14 2023 13:35:40 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Wed Jun 14 2023 23:12:31 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Expense",
-          "amount": 12
+          "amount": 100
         },
         {
-          "date": "Wed Jun 14 2023 13:35:43 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Wed Jun 14 2023 23:14:21 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Expense",
-          "amount": 12
+          "amount": 100
+        },
+        {
+          "date": "Wed Jun 14 2023 23:14:31 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 1
+        },
+        {
+          "date": "Wed Jun 14 2023 23:17:35 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 123
         }
       ]
     }

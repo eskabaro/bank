@@ -50,7 +50,7 @@ export const Transaction: FC<IProps> = ({ id, income, expense, infoBlocks }) => 
                         }
                     })
             } catch (error) {
-                console.error(error)
+                alert(error)
             } finally {
                 setAmount('')
             }

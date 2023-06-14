@@ -4,7 +4,7 @@ import { TransferService } from "@/services/transfer.service";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
 import { setFriends } from "@/store/slices/transfer";
-import { User } from "@/interfaces/data";
+import { IStatisticBlock, User } from "@/interfaces/data";
 import { Item } from "./friend-item";
 import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
@@ -21,9 +21,10 @@ interface IProps {
     cardNumber: string
     income: number
     expense: number
+    infoBlocks: IStatisticBlock[]
 }
 
-export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income }) => {
+export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income, infoBlocks }) => {
     const balance = useAppSelector(state => state.transaction.balance)
     const dispatch = useAppDispatch()
     const regex = /^[0-9]+$/
@@ -35,25 +36,16 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income }) => {
     } = useForm<IFormInput>()
 
     const transfer: SubmitHandler<IFormInput> = (data): void => {
-        TransferService.handleNumber(data.number, cardNumber).then(res => {
-            if (res) {
-                const amount = prompt(`Enter amount for ${res.userName}:`)
-                if (amount && regex.test(amount) && parseInt(amount) <= balance) {
-                    TransferService.transfer(res.id, res.balance, parseInt(amount))
-                        .finally(() => {
-                            TransferService.transForAutUser(id, balance, parseInt(amount))
-                            dispatch(setBalance(balance - parseInt(amount)))
-                            StatisticService.setStatistic(id, parseInt(amount), undefined, expense, res.id).finally(() => {
-                                dispatch(setExpense(parseInt(amount)))
-                            })
-                            InformationService.addNewBlock(parseInt(amount), id, 'EXPENSE', res.id).then(res => {
-                                dispatch(addNewBlock(res))
-                            })
-                        })
+        const amount = prompt(`Enter amount for transfer:`)
+        if (amount && regex.test(amount) && parseInt(amount) <= balance && amount !== cardNumber) {
+            TransferService.handleNumber(data.number, parseInt(amount), id, balance, infoBlocks, expense)
+                .then(res => res && dispatch(addNewBlock(res)))
+                .finally(() => {
+                    dispatch(setBalance(balance - parseInt(amount)))
+                    dispatch(setExpense(parseInt(amount)))
                     reset()
-                }
-            }
-        })
+                })
+        }
     }
 
     useEffect(() => {
