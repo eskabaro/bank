@@ -4,6 +4,12 @@
     align-items: center;
     justify-content: space-between;
 
+    >h1 {
+        color: black;
+        filter: drop-shadow(3px 3px 10px rgb(20, 57, 169));
+        background-color: aliceblue;
+    }
+
     >nav {
         display: flex;
         >span {

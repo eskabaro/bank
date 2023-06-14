@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { Logo } from "@/ui/logo";
 import { Login } from "@/ui/btn-login";
 import { Logout } from "@/ui/btn-logout";
 import { Search } from "@/components/search-user";
@@ -22,7 +23,7 @@ export const Header: FC<IProps> = ({ userName, userAvatar }) => {
     }, [])
 
     return <header className={s.head}>
-        <h1>Bank</h1>
+        <Logo />
         <nav>
             {userName && (
                 <>
