@@ -77,7 +77,8 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income, infoBloc
                         avatar={e.avatar}
                         cardNumber={cardNumber}
                         cardNumberFriend={e.card.number}
-                        expense={expense} />
+                        expense={expense}
+                        infoBlocks={infoBlocks} />
                 )}
         </div>
     </form>

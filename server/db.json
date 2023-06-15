@@ -5,9 +5,9 @@
       "login": "user",
       "password": "1",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 325,
-      "income": 325,
-      "expense": 0,
+      "balance": 144,
+      "income": 1029,
+      "expense": 258,
       "card": {
         "number": "6553327715752263",
         "date": "06/28",
@@ -38,6 +38,31 @@
           "date": "Wed Jun 14 2023 23:17:35 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
           "amount": 123
+        },
+        {
+          "date": "Thu Jun 15 2023 11:25:59 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 111
+        },
+        {
+          "date": "Thu Jun 15 2023 11:26:40 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 12
+        },
+        {
+          "date": "Thu Jun 15 2023 11:26:49 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 12
+        },
+        {
+          "date": "Thu Jun 15 2023 11:27:01 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Expense",
+          "amount": 123
+        },
+        {
+          "name": "Income",
+          "date": "Thu Jun 15 2023 11:27:11 GMT+0300 (Восточная Европа, летнее время)",
+          "amount": 100
         }
       ]
     },

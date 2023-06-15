@@ -9,6 +9,7 @@ import { addNewBlock } from "@/store/slices/informations";
 import { InformationService } from "@/services/information.service";
 import { StatisticService } from "@/services/statistic.service";
 import s from './Item.module.scss';
+import { IStatisticBlock } from "@/interfaces/data";
 
 interface IProps {
    id: string,
@@ -18,9 +19,10 @@ interface IProps {
    cardNumberFriend: string,
    idAuthUser: string
    expense: number
+   infoBlocks: IStatisticBlock[]
 }
 
-export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFriend, idAuthUser, expense }) => {
+export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFriend, idAuthUser, expense, infoBlocks }) => {
    const balance = useAppSelector(state => state.transaction.balance)
    const dispatch = useAppDispatch()
    const [active, setActive] = useState(false)
@@ -28,24 +30,15 @@ export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFrien
    const regex = /^[0-9]+$/
 
    const transferFriend = () => {
-      TransferService.handleNumber(cardNumberFriend, cardNumber).then(res => {
-         if (res) {
-            const amount = prompt(`Enter amount for ${name}:`)
-            if (amount && regex.test(amount) && parseInt(amount) <= balance) {
-               TransferService.transfer(res.id, res.balance, parseInt(amount))
-                  .finally(() => {
-                     TransferService.transForAutUser(idAuthUser, balance, parseInt(amount))
-                     dispatch(setBalance(balance - parseInt(amount)))
-                     StatisticService.setStatistic(idAuthUser, parseInt(amount), undefined, expense, id).finally(() => {
-                        dispatch(setExpense(parseInt(amount)))
-                     })
-                     InformationService.addNewBlock(parseInt(amount), idAuthUser, 'EXPENSE', id).then(res => {
-                        dispatch(addNewBlock(res))
-                     })
-                  })
-            }
-         }
-      })
+      const amount = prompt(`Enter amount for ${name}:`)
+      if (amount && regex.test(amount) && parseInt(amount) <= balance && amount !== cardNumberFriend) {
+         TransferService.handleNumber(cardNumberFriend, parseInt(amount), idAuthUser, balance, infoBlocks, expense)
+            .then(res => res && dispatch(addNewBlock(res)))
+            .finally(() => {
+               dispatch(setBalance(balance - parseInt(amount)))
+               dispatch(setExpense(parseInt(amount)))
+            })
+      }
    }
 
    return <>

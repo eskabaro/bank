@@ -1,16 +1,13 @@
 import axios from "axios"
 import type { IStatisticBlock } from "@/interfaces/data"
+import { GenerationUtils } from "@/utilities/generation.utils"
 
 axios.defaults.baseURL = 'http://localhost:4200'
 
 export const TransactionService = {
-    dateNow: String(new Date),
     async topUp(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], income?: number) {
-        const block: IStatisticBlock = {
-            date: this.dateNow,
-            name: infoType === 'INCOME' ? 'Income' : 'Expense',
-            amount
-        }
+        const block = GenerationUtils.generationInfoBlock(infoType === 'INCOME' ? 'Income' : 'Expense', amount)
+
         try {
             await axios.patch(`/users/${id}`, {
                 balance: currentBalance + amount,
@@ -24,11 +21,8 @@ export const TransactionService = {
         }
     },
     async withdrawal(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], _: any, expense?: number) {
-        const block: IStatisticBlock = {
-            date: this.dateNow,
-            name: infoType === 'INCOME' ? 'Income' : 'Expense',
-            amount
-        }
+        const block = GenerationUtils.generationInfoBlock(infoType === 'INCOME' ? 'Income' : 'Expense', amount)
+        
         try {
             await axios.patch(`/users/${id}`, {
                 balance: currentBalance - amount,
