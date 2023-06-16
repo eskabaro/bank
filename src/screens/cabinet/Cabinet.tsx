@@ -16,7 +16,7 @@ export const Cabinet: FC<UserDataSingle> = ({ user }) => {
         <section className={s.container__block2}>
             <Statistics income={user.income} expense={user.expense} />
             <Transaction id={user.id} income={user.income} expense={user.expense} infoBlocks={user.infoBlocks} />
-            <Transfer id={user.id} cardNumber={user.card.number} income={user.income} expense={user.expense} infoBlocks={user.infoBlocks} />
+            <Transfer id={user.id} cardNumber={user.card.number} expense={user.expense} infoBlocks={user.infoBlocks} myFriends={user.friends} />
         </section>
     </main>
 }

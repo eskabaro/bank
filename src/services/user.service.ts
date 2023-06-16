@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { User } from "@/interfaces/data";
+import type { IFriend, User } from "@/interfaces/data";
 
 axios.defaults.baseURL = 'http://localhost:4200/'
 
@@ -12,9 +12,18 @@ export const UsersService = {
         const { data } = await axios.get<User[]>(`/users?id=${id}`)
         return data[0]
     },
-    async getSingleUser(id: string) {
+    async addNewFriend(id: string, myId: string, myFriends: IFriend[]) {
         const { data } = await axios.get<User>(`/users/${id}`)
-        return data
+        const friend: IFriend = {
+            id: data.id,
+            name: data.login,
+            avatar: data.avatar,
+            cardNumber: data.card.number
+        }
+        if (data) await axios.patch(`users/${myId}`, {
+            friends: [...myFriends, friend]
+        })
+        return friend
     },
     async addNewUser(user: User) {
         try {
@@ -31,7 +40,7 @@ export const UsersService = {
         try {
             const { data } = await axios.get<User[]>('/users')
             const sortData = data.map(e => {
-                return {id: e.id, login: e.login, avatar: e.avatar}
+                return { id: e.id, login: e.login, avatar: e.avatar }
             })
             return sortData
         } catch (error) {
@@ -40,8 +49,8 @@ export const UsersService = {
     },
     async handleUserLogin(login: string) {
         try {
-           const data = await axios.get(`/users?login=${login}`)
-           return data
+            const data = await axios.get(`/users?login=${login}`)
+            return data
         } catch (error) {
             console.error(error)
         }

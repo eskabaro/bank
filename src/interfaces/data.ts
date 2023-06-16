@@ -8,6 +8,14 @@ export interface User {
     income: number
     expense: number
     infoBlocks: IStatisticBlock[]
+    friends: IFriend[]
+}
+
+export interface IFriend {
+    id: string,
+    name: string,
+    avatar: string,
+    cardNumber: string
 }
 
 export interface IStatisticBlock {

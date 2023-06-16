@@ -1,104 +1,73 @@
 {
   "users": [
     {
-      "id": "1686762636987",
-      "login": "user",
-      "password": "1",
+      "id": "1686916676238",
+      "login": "eskabaro",
+      "password": "asd123!@#",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 144,
-      "income": 1029,
-      "expense": 258,
+      "balance": 200,
+      "income": 200,
+      "expense": 0,
       "card": {
-        "number": "6553327715752263",
+        "number": "0979270698256480",
         "date": "06/28",
-        "cvv": 693
+        "cvv": 206
       },
       "infoBlocks": [
         {
-          "date": "Wed Jun 14 2023 23:12:31 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
+          "date": "Fri Jun 16 2023 15:39:27 GMT+0300 (Москва, стандартное время)",
           "amount": 100
         },
         {
-          "date": "Wed Jun 14 2023 23:12:52 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Income",
-          "amount": 1
-        },
-        {
-          "date": "Wed Jun 14 2023 23:14:21 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 100
-        },
-        {
-          "date": "Wed Jun 14 2023 23:14:31 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 1
-        },
-        {
-          "date": "Wed Jun 14 2023 23:17:35 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Income",
-          "amount": 123
-        },
-        {
-          "date": "Thu Jun 15 2023 11:25:59 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 111
-        },
-        {
-          "date": "Thu Jun 15 2023 11:26:40 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 12
-        },
-        {
-          "date": "Thu Jun 15 2023 11:26:49 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 12
-        },
-        {
-          "date": "Thu Jun 15 2023 11:27:01 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
-        },
-        {
-          "name": "Income",
-          "date": "Thu Jun 15 2023 11:27:11 GMT+0300 (Восточная Европа, летнее время)",
+          "date": "Fri Jun 16 2023 15:39:32 GMT+0300 (Москва, стандартное время)",
           "amount": 100
         }
-      ]
+      ],
+      "friends": []
     },
     {
-      "id": "1686762916758",
-      "login": "Eskabaro",
+      "id": "1686916747237",
+      "login": "user",
       "password": "1",
-      "avatar": "/animals/elephant-3969722.png",
-      "balance": 775,
-      "income": 100,
-      "expense": 324,
+      "avatar": "/animals/mouse-3969805.png",
+      "balance": 700,
+      "income": 1000,
+      "expense": 300,
       "card": {
-        "number": "7612006263356545",
+        "number": "0296991972167941",
         "date": "06/28",
-        "cvv": 562
+        "cvv": 214
       },
       "infoBlocks": [
         {
-          "date": "Wed Jun 14 2023 23:12:31 GMT+0300 (Восточная Европа, летнее время)",
+          "name": "Income",
+          "date": "Fri Jun 16 2023 15:39:09 GMT+0300 (Москва, стандартное время)",
+          "amount": 1000
+        },
+        {
           "name": "Expense",
+          "date": "Fri Jun 16 2023 15:39:14 GMT+0300 (Москва, стандартное время)",
           "amount": 100
         },
         {
-          "date": "Wed Jun 14 2023 23:14:21 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Expense",
+          "date": "Fri Jun 16 2023 15:39:27 GMT+0300 (Москва, стандартное время)",
           "amount": 100
         },
         {
-          "date": "Wed Jun 14 2023 23:14:31 GMT+0300 (Восточная Европа, летнее время)",
           "name": "Expense",
-          "amount": 1
-        },
+          "date": "Fri Jun 16 2023 15:39:32 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        }
+      ],
+      "friends": [
         {
-          "date": "Wed Jun 14 2023 23:17:35 GMT+0300 (Восточная Европа, летнее время)",
-          "name": "Expense",
-          "amount": 123
+          "id": "1686916676238",
+          "name": "eskabaro",
+          "avatar": "/animals/elephant-3969722.png",
+          "cardNumber": "0979270698256480"
         }
       ]
     }

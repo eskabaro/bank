@@ -18,7 +18,8 @@ export const CreateUserUtils = {
                 date: CardUtils.createCardDate(),
                 cvv: CardUtils.createCardCvv()
             },
-            infoBlocks: []
+            infoBlocks: [],
+            friends: []
         }
         return user
     }

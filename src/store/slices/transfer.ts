@@ -1,9 +1,9 @@
-import { User } from "@/interfaces/data";
+import { IFriend } from "@/interfaces/data";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface TransferState {
-   friends: User[]
+   friends: IFriend[]
 }
 
 const initialState: TransferState = {
@@ -14,18 +14,14 @@ export const TransferSlice = createSlice({
    name: 'TransferSlice',
    initialState,
    reducers: {
-      addFriend: (state, action: PayloadAction<User>) => {
+      addFriend: (state, action: PayloadAction<IFriend>) => {
          const currentUser = state.friends.find(e => e.id === action.payload.id)
-         if (!currentUser) {
-            state.friends.push(action.payload)
-            localStorage.setItem('friends', JSON.stringify(state.friends))
-         }
+         if (!currentUser) state.friends.push(action.payload)
       },
       deleteFriend: (state, action: PayloadAction<string>) => {
          state.friends = state.friends.filter(e => e.id !== action.payload)
-         localStorage.setItem('friends', JSON.stringify(state.friends))
       },
-      setFriends: (state, action: PayloadAction<User[]>) => {
+      setFriends: (state, action: PayloadAction<IFriend[]>) => {
          state.friends = action.payload
       }
    }

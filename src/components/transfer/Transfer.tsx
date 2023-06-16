@@ -4,13 +4,11 @@ import { TransferService } from "@/services/transfer.service";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
 import { setFriends } from "@/store/slices/transfer";
-import { IStatisticBlock, User } from "@/interfaces/data";
+import { IFriend, IStatisticBlock } from "@/interfaces/data";
 import { Item } from "./friend-item";
 import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
 import s from './Transfer.module.scss'
-import { InformationService } from "@/services/information.service";
-import { StatisticService } from "@/services/statistic.service";
 
 export interface IFormInput {
     number: string
@@ -19,12 +17,12 @@ export interface IFormInput {
 interface IProps {
     id: string,
     cardNumber: string
-    income: number
     expense: number
     infoBlocks: IStatisticBlock[]
+    myFriends: IFriend[]
 }
 
-export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income, infoBlocks }) => {
+export const Transfer: FC<IProps> = ({ id, cardNumber, expense, infoBlocks, myFriends }) => {
     const balance = useAppSelector(state => state.transaction.balance)
     const dispatch = useAppDispatch()
     const regex = /^[0-9]+$/
@@ -49,8 +47,7 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income, infoBloc
     }
 
     useEffect(() => {
-        const friendsStorage = localStorage.getItem('friends')
-        if (friendsStorage) dispatch(setFriends(JSON.parse(friendsStorage)))
+        dispatch(setFriends(myFriends))
     }, [])
 
     const friends = useAppSelector(state => state.transfer.friends)
@@ -69,14 +66,14 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, income, infoBloc
         </label>
         <div style={{ marginTop: '10px' }}>
             {friends
-                .map((e: User) =>
+                .map((e: IFriend) =>
                     <Item key={e.id}
                         id={e.id}
                         idAuthUser={id}
-                        name={e.login}
+                        name={e.name}
                         avatar={e.avatar}
                         cardNumber={cardNumber}
-                        cardNumberFriend={e.card.number}
+                        cardNumberFriend={e.cardNumber}
                         expense={expense}
                         infoBlocks={infoBlocks} />
                 )}

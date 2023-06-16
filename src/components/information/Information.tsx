@@ -20,7 +20,7 @@ export const Information: FC<IProps> = ({ infoBlocks }) => {
 
    return <div className={s.wrapper}>
       {blocks.length ? (
-         blocks.map(e => <div key={e.date} className={s.block}>
+         blocks.map((e: IStatisticBlock) => <div key={e.date} className={s.block}>
             <div className={s.arrow}>
                <Image src={e.name === 'Income' ? '/ArrowUp.svg' : '/ArrowDown.svg'} alt="Svg" width={20} height={20} />
                <span>{e.name === 'Income' ? 'Income' : 'Expense'}</span>

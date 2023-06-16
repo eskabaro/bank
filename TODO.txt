@@ -2,3 +2,4 @@
 --- fix bag with error in input (login) on register page  
 --- add types for api fetch request
 --- create function that generates infoBlocks 
+--- create object for props in layout components

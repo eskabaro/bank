@@ -18,7 +18,7 @@ const CabinetPage: NextPage<UserDataSingle> = ({ user }) => {
         dispatch(setBalance(user.balance))
     }, [])
 
-    return <Layout userName={user.login} userAvatar={user.avatar}>
+    return <Layout userName={user.login} userAvatar={user.avatar} userId={user.id} userFriends={user.friends}>
         <Cabinet user={user} />
     </Layout>
 }

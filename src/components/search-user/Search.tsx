@@ -1,15 +1,18 @@
 import { FC, useEffect, useState } from "react";
 import { Item } from "./item/Item";
 import { UsersService } from "@/services/user.service";
-import { ISortUser } from "@/interfaces/data";
+import { IFriend, ISortUser } from "@/interfaces/data";
 import Image from "next/image";
 import s from './Search.module.scss';
 
 interface IProps {
     name: string
+    userId?: string
+    userFriends?: IFriend[]
 }
 
-export const Search: FC<IProps> = ({ name }) => {
+export const Search: FC<IProps> = ({ name, userId, userFriends }) => {
+    
     const [value, setValue] = useState('')
     const [users, setUsers] = useState<ISortUser[]>()
 
@@ -45,6 +48,8 @@ export const Search: FC<IProps> = ({ name }) => {
                     name={e.login}
                     avatar={e.avatar}
                     setValue={setValue}
+                    userId={userId}
+                    userFriends={userFriends}
                 />
             )}
         </ul>

@@ -42,7 +42,7 @@ export const Statistics: FC<IProps> = ({ income, expense }) => {
          <span>Income: <CountUp start={statistics.income} end={countIncome} /> ₴</span>
       </div>
       <div className={s.expense}>
-         <span>Expense: <CountUp start={statistics.expense} end={countExpense} />₴</span>
+         <span>Expense: <CountUp start={statistics.expense} end={countExpense} /> ₴</span>
       </div>
    </div>
 }
