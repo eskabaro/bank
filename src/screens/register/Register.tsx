@@ -30,9 +30,9 @@ export const Register: FC<IProps> = ({ numbers }) => {
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
         UsersService.handleUserLogin(data.login).then(res => {
-            if (!res?.data.length) {
+            if (!res?.length) {
                 UsersService.addNewUser(CreateUserUtils.createUser(data, numbers))
-                    .finally(() => route.push('/login'))
+                    .then(res => res && route.push('/login'))
             } else setErrorLogin('This name is already taken')
         })
     }

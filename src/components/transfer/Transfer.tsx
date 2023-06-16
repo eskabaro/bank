@@ -72,9 +72,9 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, infoBlocks, myFr
                         idAuthUser={id}
                         name={e.name}
                         avatar={e.avatar}
-                        cardNumber={cardNumber}
                         cardNumberFriend={e.cardNumber}
                         expense={expense}
+                        myFriends={myFriends}
                         infoBlocks={infoBlocks} />
                 )}
         </div>

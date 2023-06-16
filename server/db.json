@@ -5,36 +5,15 @@
       "login": "eskabaro",
       "password": "asd123!@#",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 145,
-      "income": 300,
+      "balance": 246,
+      "income": 401,
       "expense": 155,
       "card": {
         "number": "0979270698256480",
         "date": "06/28",
         "cvv": 206
       },
-      "infoBlocks": [
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 15:39:27 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 15:39:32 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Expense",
-          "date": "Fri Jun 16 2023 18:31:36 GMT+0300 (Москва, стандартное время)",
-          "amount": 155
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:36:19 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        }
-      ],
+      "infoBlocks": [],
       "friends": [
         {
           "id": "1686916747237",
@@ -49,104 +28,16 @@
       "login": "user",
       "password": "1",
       "avatar": "/animals/mouse-3969805.png",
-      "balance": 1855,
-      "income": 2055,
-      "expense": 600,
+      "balance": 2755,
+      "income": 2531,
+      "expense": 665,
       "card": {
         "number": "0296991972167941",
         "date": "06/28",
         "cvv": 214
       },
-      "infoBlocks": [
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 15:39:09 GMT+0300 (Москва, стандартное время)",
-          "amount": 1000
-        },
-        {
-          "name": "Expense",
-          "date": "Fri Jun 16 2023 15:39:14 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Expense",
-          "date": "Fri Jun 16 2023 15:39:27 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Expense",
-          "date": "Fri Jun 16 2023 15:39:32 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:31:36 GMT+0300 (Москва, стандартное время)",
-          "amount": 155
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:32:32 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:05 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:20 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:27 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:32 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:36 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:41 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:44:50 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Expense",
-          "date": "Fri Jun 16 2023 18:48:11 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Fri Jun 16 2023 18:48:39 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Expense",
-          "date": "Fri Jun 16 2023 18:49:24 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        }
-      ],
-      "friends": [
-        {
-          "id": "1686916676238",
-          "name": "eskabaro",
-          "avatar": "/animals/elephant-3969722.png",
-          "cardNumber": "0979270698256480"
-        }
-      ]
+      "infoBlocks": [],
+      "friends": []
     }
   ]
 }

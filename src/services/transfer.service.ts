@@ -23,9 +23,9 @@ export const TransferService = {
                     expense: expense + amount
                 })
             }
-            return blockExpense
         } catch (error) {
             console.error(error)
         }
+        return blockExpense
     }
 }

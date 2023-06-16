@@ -9,7 +9,7 @@ export const GenerationUtils = {
         }
         return block
     },
-    generationFriend(data: User) {
+    generationFriend(data: User): IFriend {
         const friend: IFriend = {
             id: data.id,
             name: data.login,

@@ -1,5 +1,5 @@
 --- fix bag with redirect login page
 --- fix bag tied with several rquests transaction function 
 --- fix bag with error in input (login) on register page  
---- add types for api fetch request
+--- add types for api fetch request (transaction.service)
 --- create object for props in layout components

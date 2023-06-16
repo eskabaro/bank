@@ -6,23 +6,22 @@ import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
 import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
-import { InformationService } from "@/services/information.service";
-import { StatisticService } from "@/services/statistic.service";
-import s from './Item.module.scss';
 import { IStatisticBlock } from "@/interfaces/data";
+import type { IFriend } from "@/interfaces/data";
+import s from './Item.module.scss';
 
 interface IProps {
    id: string,
    avatar: string,
    name: string,
-   cardNumber: string,
    cardNumberFriend: string,
    idAuthUser: string
    expense: number
    infoBlocks: IStatisticBlock[]
+   myFriends: IFriend[]
 }
 
-export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFriend, idAuthUser, expense, infoBlocks }) => {
+export const Item: FC<IProps> = ({ avatar, name, id, cardNumberFriend, idAuthUser, expense, infoBlocks, myFriends }) => {
    const balance = useAppSelector(state => state.transaction.balance)
    const dispatch = useAppDispatch()
    const [active, setActive] = useState(false)
@@ -51,6 +50,6 @@ export const Item: FC<IProps> = ({ avatar, name, id, cardNumber, cardNumberFrien
             <Image src={'/Xmark.svg'} width={15} height={15} alt="Button" />
          </button>
       </div>
-      {active && <Modal id={id} name={name} setActive={setActive} />}
+      {active && <Modal friendId={id} myId={idAuthUser} name={name} setActive={setActive} myFriends={myFriends} />}
    </>
 } 
