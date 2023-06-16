@@ -5,9 +5,9 @@
       "login": "eskabaro",
       "password": "asd123!@#",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 200,
-      "income": 200,
-      "expense": 0,
+      "balance": 145,
+      "income": 300,
+      "expense": 155,
       "card": {
         "number": "0979270698256480",
         "date": "06/28",
@@ -23,18 +23,35 @@
           "name": "Income",
           "date": "Fri Jun 16 2023 15:39:32 GMT+0300 (Москва, стандартное время)",
           "amount": 100
+        },
+        {
+          "name": "Expense",
+          "date": "Fri Jun 16 2023 18:31:36 GMT+0300 (Москва, стандартное время)",
+          "amount": 155
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:36:19 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
         }
       ],
-      "friends": []
+      "friends": [
+        {
+          "id": "1686916747237",
+          "name": "user",
+          "avatar": "/animals/mouse-3969805.png",
+          "cardNumber": "0296991972167941"
+        }
+      ]
     },
     {
       "id": "1686916747237",
       "login": "user",
       "password": "1",
       "avatar": "/animals/mouse-3969805.png",
-      "balance": 700,
-      "income": 1000,
-      "expense": 300,
+      "balance": 1855,
+      "income": 2055,
+      "expense": 600,
       "card": {
         "number": "0296991972167941",
         "date": "06/28",
@@ -59,6 +76,66 @@
         {
           "name": "Expense",
           "date": "Fri Jun 16 2023 15:39:32 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:31:36 GMT+0300 (Москва, стандартное время)",
+          "amount": 155
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:32:32 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:05 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:20 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:27 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:32 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:36 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:41 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:44:50 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Expense",
+          "date": "Fri Jun 16 2023 18:48:11 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Fri Jun 16 2023 18:48:39 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Expense",
+          "date": "Fri Jun 16 2023 18:49:24 GMT+0300 (Москва, стандартное время)",
           "amount": 100
         }
       ],

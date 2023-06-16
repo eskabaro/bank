@@ -8,6 +8,7 @@
     display: grid;
     grid-template-areas: "block1 block1 block2";
     gap: 20px;
+    margin-bottom: 20px;
 
     &__block1 {
         @include block;

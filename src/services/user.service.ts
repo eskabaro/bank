@@ -1,5 +1,6 @@
 import axios from "axios";
 import type { IFriend, User } from "@/interfaces/data";
+import { GenerationUtils } from "@/utilities/generation.utils";
 
 axios.defaults.baseURL = 'http://localhost:4200/'
 
@@ -14,15 +15,12 @@ export const UsersService = {
     },
     async addNewFriend(id: string, myId: string, myFriends: IFriend[]) {
         const { data } = await axios.get<User>(`/users/${id}`)
-        const friend: IFriend = {
-            id: data.id,
-            name: data.login,
-            avatar: data.avatar,
-            cardNumber: data.card.number
-        }
+        const friend = GenerationUtils.generationFriend(data)
+
         if (data) await axios.patch(`users/${myId}`, {
             friends: [...myFriends, friend]
         })
+        
         return friend
     },
     async addNewUser(user: User) {

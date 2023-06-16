@@ -1,4 +1,29 @@
+@import '../../../styles/variables.scss';
+
+@mixin text {
+    color: $opacity-color;
+    max-width: 600px;
+}
+
 .footer {
+    padding: 30px 20px;
     margin-top: auto;
-    color: aliceblue;
+    background-color: $background-dubble;
+    border-top-left-radius: $border-radius-block;
+    border-top-right-radius: $border-radius-block;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    &__first {
+        @include text;
+        margin-right: 10px;
+        text-align: end;
+    }
+    &__second {
+        @include text;
+        margin-left: 10px;
+        text-align: start;
+    }
+    
 }
