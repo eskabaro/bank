@@ -1,12 +1,11 @@
-import { FC } from "react";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { Layout } from "@/components/layout";
 import { Login } from "@/screens/login";
 import { UsersService } from "@/services/user.service";
 import type { Users } from "@/interfaces/data";
 
-const LoginPage: FC<Users> = ({ users }) => {
-    return <Layout>
+const LoginPage: NextPage<Users> = ({ users }) => {
+    return <Layout title='Login'>
         <Login users={users} />
     </Layout>
 }
@@ -14,21 +13,31 @@ const LoginPage: FC<Users> = ({ users }) => {
 export const getServerSideProps: GetServerSideProps<Users> = async ({
     req
 }) => {
-    const users = await UsersService.getUsers()
-    const cookie = req.headers.cookie?.split('=')[1]
-    const user = cookie ? JSON.parse(cookie) : null
+    try {
+        const users = await UsersService.getUsers()
+        const cookie = req.headers.cookie?.split('=')[1]
+        const user = cookie ? JSON.parse(cookie) : null
 
-    if (user) {
+        if (user) {
+            return {
+                redirect: {
+                    destination: `/cabinet/${user.id}`,
+                    permanent: false
+                }
+            }
+        }
+
+        return {
+            props: { users }
+        }
+    } catch (error) {
+
         return {
             redirect: {
-                destination: `/cabinet/${user.id}`,
+                destination: `404`,
                 permanent: false
             }
         }
-    }
-
-    return {
-        props: { users }
     }
 }
 

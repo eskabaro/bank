@@ -2,14 +2,12 @@ import { GetServerSideProps, NextPage } from "next";
 import { UsersService } from "@/services/user.service";
 import type { Users } from "@/interfaces/data";
 
-const HomePage: NextPage = () => {
-  return null
-}
+const HomePage: NextPage = () => null
 
 export const getServerSideProps: GetServerSideProps<Users> = async () => {
   const users = await UsersService.getUsers()
 
-  if (!users.length) {
+  if (!users) {
     return {
       redirect: {
         destination: '/register',

@@ -18,7 +18,7 @@ const CabinetPage: NextPage<UserDataSingle> = ({ user }) => {
         dispatch(setBalance(user.balance))
     }, [])
 
-    return <Layout userName={user.login} userAvatar={user.avatar} userId={user.id} userFriends={user.friends}>
+    return <Layout title='Your cabinet' userName={user.login} userAvatar={user.avatar} userId={user.id} userFriends={user.friends}>
         <Cabinet user={user} />
     </Layout>
 }
@@ -43,11 +43,20 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 export const getStaticProps: GetStaticProps<UserDataSingle> = async ({
     params
 }) => {
-    const user = await UsersService.getUserById(String(params?.id))
+    try {
+        const user = await UsersService.getUserById(String(params?.id))
 
-    return {
-        props: { user },
-        revalidate: 60
+        return {
+            props: { user },
+            revalidate: 60
+        }
+    } catch (error) {
+        return {
+            redirect: {
+                destination: '404',
+                permanent: false
+            }
+        }
     }
 }
 

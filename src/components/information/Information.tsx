@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBlocks } from "@/store/slices/informations";
-import { GetDate } from "@/utilities/getDate.utils";
+import { GesUtils } from "@/utilities/gets.utils";
 import type { IStatisticBlock } from "@/interfaces/data";
 import s from './Information.module.scss'
 
@@ -27,7 +27,7 @@ export const Information: FC<IProps> = ({ infoBlocks }) => {
             </div>
             <div className={s.date}>
                <Image src={'/Date.svg'} alt="Date" width={20} height={20} />
-               <span>{GetDate.getDate(e.date)}</span>
+               <span>{GesUtils.getDate(e.date)}</span>
             </div>
             <span>{e.amount.toLocaleString().replace(/\s/g, ',')} ₴</span>
          </div>).reverse()

@@ -1,27 +1,19 @@
 import axios from "axios";
-import type { IFriend, User, ISortUser } from "@/interfaces/data";
+import type { IFriend, User } from "@/interfaces/data";
 import { GenerationUtils } from "@/utilities/generation.utils";
 
 axios.defaults.baseURL = 'http://localhost:4200/';
 
 export const UsersService = {
-    async getUsers(): Promise<User[] | undefined> {
-        try {
-            const { data } = await axios.get<User[]>('/users')
-            return data
-        } catch (error) {
-            console.error(error)
-        }
+    async getUsers(): Promise<User[]> {
+        const { data } = await axios.get<User[]>('/users')
+        return data
     },
-    async getUserById(id: string): Promise<User | undefined> {
-        try {
-            const { data } = await axios.get<User[]>(`/users?id=${id}`)
-            return data[0]
-        } catch (error) {
-            console.error(error)
-        }
+    async getUserById(id: string): Promise<User> {
+        const { data } = await axios.get<User[]>(`/users?id=${id}`)
+        return data[0]
     },
-    async addNewFriend(id: string, myId: string, myFriends: IFriend[]): Promise<IFriend | undefined> {
+    async addNewFriend(id: string, myId: string, myFriends: IFriend[]) {
         try {
             const { data } = await axios.get<User>(`/users/${id}`)
             const friend = GenerationUtils.generationFriend(data)
@@ -35,7 +27,7 @@ export const UsersService = {
             console.error(error)
         }
     },
-    async deleteFriend(myId: string, newMyFriends: IFriend[]): Promise<boolean | undefined> {
+    async deleteFriend(myId: string, newMyFriends: IFriend[]) {
         try {
             await axios.patch<User>(`/users/${myId}`, {
                 friends: newMyFriends
@@ -45,7 +37,7 @@ export const UsersService = {
             console.error(error)
         }
     },
-    async addNewUser(user: User): Promise<boolean | undefined> {
+    async addNewUser(user: User) {
         try {
             await axios<User>({
                 method: 'post',
@@ -57,7 +49,7 @@ export const UsersService = {
             console.error(error)
         }
     },
-    async getUsersByName(): Promise<ISortUser[] | undefined> {
+    async getUsersByName() {
         try {
             const { data } = await axios.get<User[]>('/users')
             const sortData = data.map(e => {
@@ -68,7 +60,7 @@ export const UsersService = {
             console.error(error)
         }
     },
-    async handleUserLogin(login: string): Promise<User[] | undefined> {
+    async handleUserLogin(login: string) {
         try {
             const { data } = await axios.get<User[]>(`/users?login=${login}`)
             return data

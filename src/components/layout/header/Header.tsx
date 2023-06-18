@@ -41,3 +41,5 @@ export const Header: FC<IProps> = ({ userName, userAvatar, userId, userFriends }
         </nav>
     </header>
 }
+
+export default Header

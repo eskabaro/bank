@@ -5,7 +5,9 @@ import { Circle } from "./circle";
 import dynamic from 'next/dynamic';
 import s from './Statistics.module.scss'
 
-const CountUp = dynamic(() => import('react-countup'), { ssr: false });
+const CountUp = dynamic(() => import('react-countup'), {
+   ssr: false
+});
 
 interface IProps {
    income: number,

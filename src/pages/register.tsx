@@ -9,16 +9,25 @@ interface IProps {
 }
 
 const RegisterPage: FC<IProps> = ({ numbers }) => {
-    return <Layout>
+    return <Layout title='Register'>
         <Register numbers={numbers} />
     </Layout>
 }
 
 export const getStaticProps: GetStaticProps<IProps> = async () => {
-    const numbers = await UsersService.getUsers().then(data => data.map(e => e.card.number))
+    try {
+        const numbers = await UsersService.getUsers().then(data => data.map(e => e.card.number))
 
-    return {
-        props: { numbers }
+        return {
+            props: { numbers }
+        }
+    } catch (error) {
+        return {
+            redirect: {
+                destination: `404`,
+                permanent: false
+            }
+        }
     }
 }
 
