@@ -5,24 +5,25 @@ import type { IStatisticBlock, User } from "@/interfaces/data"
 axios.defaults.baseURL = 'http://localhost:4200'
 
 export const TransactionService = {
-    async topUp(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], income?: number) {
+    async topUp(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], income?: number): Promise<IStatisticBlock | undefined> {
         const block = GenerationUtils.generationInfoBlock(infoType === 'INCOME' ? 'Income' : 'Expense', amount)
+        console.log(amount);
+        
         try {
             await axios.patch<User>(`/users/${id}`, {
                 balance: currentBalance + amount,
                 income: income !== undefined ? income + amount : income,
                 infoBlocks: [...blocks, block]
             })
-            console.log(block)
             return block
         } catch (error) {
             alert('Unable to top up balance(')
             console.error(error)
         }
     },
-    async withdrawal(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], _: any, expense?: number) {
+    async withdrawal(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], _: any, expense?: number): Promise<IStatisticBlock | undefined> {
         const block = GenerationUtils.generationInfoBlock(infoType === 'INCOME' ? 'Income' : 'Expense', amount)
-        
+
         try {
             await axios.patch<User>(`/users/${id}`, {
                 balance: currentBalance - amount,

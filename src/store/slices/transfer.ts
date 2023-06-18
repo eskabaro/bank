@@ -2,11 +2,11 @@ import { IFriend } from "@/interfaces/data";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface TransferState {
+interface IState {
    friends: IFriend[]
 }
 
-const initialState: TransferState = {
+const initialState: IState = {
    friends: []
 }
 

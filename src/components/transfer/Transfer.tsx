@@ -4,7 +4,7 @@ import { TransferService } from "@/services/transfer.service";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
 import { setFriends } from "@/store/slices/transfer";
-import { IFriend, IStatisticBlock } from "@/interfaces/data";
+import { IFriend } from "@/interfaces/data";
 import { Item } from "./friend-item";
 import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
@@ -17,13 +17,14 @@ export interface IFormInput {
 interface IProps {
     id: string,
     cardNumber: string
-    expense: number
-    infoBlocks: IStatisticBlock[]
     myFriends: IFriend[]
 }
 
-export const Transfer: FC<IProps> = ({ id, cardNumber, expense, infoBlocks, myFriends }) => {
+export const Transfer: FC<IProps> = ({ id, cardNumber, myFriends }) => {
     const balance = useAppSelector(state => state.transaction.balance)
+    const infBlocks = useAppSelector(state => state.informations.blocks)
+    const finance = useAppSelector(state => state.statistics)
+
     const dispatch = useAppDispatch()
     const regex = /^[0-9]+$/
 
@@ -36,7 +37,7 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, infoBlocks, myFr
     const transfer: SubmitHandler<IFormInput> = (data): void => {
         const amount = prompt(`Enter amount for transfer:`)
         if (amount && regex.test(amount) && parseInt(amount) <= balance && amount !== cardNumber) {
-            TransferService.handleNumber(data.number, parseInt(amount), id, balance, infoBlocks, expense)
+            TransferService.handleNumber(data.number, parseInt(amount), id, balance, infBlocks, finance.expense)
                 .then(res => res && dispatch(addNewBlock(res)))
                 .finally(() => {
                     dispatch(setBalance(balance - parseInt(amount)))
@@ -73,9 +74,7 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, expense, infoBlocks, myFr
                         name={e.name}
                         avatar={e.avatar}
                         cardNumberFriend={e.cardNumber}
-                        expense={expense}
-                        myFriends={myFriends}
-                        infoBlocks={infoBlocks} />
+                        myFriends={myFriends} />
                 )}
         </div>
     </form>

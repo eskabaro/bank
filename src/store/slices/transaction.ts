@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface IState {
+    balance: number
+}
+
+const initialState: IState = {
     balance: 0
 }
 

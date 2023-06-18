@@ -1,12 +1,12 @@
-import axios from "axios"
-import { GenerationUtils } from "@/utilities/generation.utils"
-import type { User } from "@/interfaces/data"
-import type { IStatisticBlock } from "@/interfaces/data"
+import axios from "axios";
+import { GenerationUtils } from "@/utilities/generation.utils";
+import type { User } from "@/interfaces/data";
+import type { IStatisticBlock } from "@/interfaces/data";
 
-axios.defaults.baseURL = 'http://localhost:4200'
+axios.defaults.baseURL = 'http://localhost:4200';
 
 export const TransferService = {
-    async handleNumber(friendNumber: string, amount: number, id: string, currentBalance: number, infoBlocks: IStatisticBlock[], expense: number) {
+    async handleNumber(friendNumber: string, amount: number, id: string, currentBalance: number, infoBlocks: IStatisticBlock[], expense: number): Promise<IStatisticBlock | undefined> {
         const blockExpense = GenerationUtils.generationInfoBlock('Expense', amount)
 
         try {
@@ -22,10 +22,10 @@ export const TransferService = {
                     infoBlocks: [...infoBlocks, blockExpense],
                     expense: expense + amount
                 })
+                return blockExpense
             }
         } catch (error) {
             console.error(error)
         }
-        return blockExpense
     }
 }

@@ -4,30 +4,30 @@ import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBalance } from "@/store/slices/transaction";
 import { setExpense, setIncome } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
-import type { IStatisticBlock } from "@/interfaces/data";
 import s from './Transaction.module.scss';
 
 interface IProps {
     id: string;
-    income: number;
-    expense: number;
-    infoBlocks: IStatisticBlock[]
 }
 
-export const Transaction: FC<IProps> = ({ id, income, expense, infoBlocks }) => {
-    const [amount, setAmount] = useState<string>('');
-    const balance = useAppSelector((state) => state.transaction.balance);
-    const dispatch = useAppDispatch();
+export const Transaction: FC<IProps> = ({ id }) => {
+    const [amount, setAmount] = useState<string>('')
+
+    const balance = useAppSelector(state => state.transaction.balance)
+    const infBlocks = useAppSelector(state => state.informations.blocks)
+    const finance = useAppSelector(state => state.statistics) 
+
+    const dispatch = useAppDispatch()
 
     const handleTopUp = async () => {
         if (amount) {
             try {
-                await TransactionService.topUp(parseInt(amount), id, balance, 'INCOME', infoBlocks, income)
+                await TransactionService.topUp(parseInt(amount), id, balance, 'INCOME', infBlocks, finance.income)
                     .then(res => {
                         if (res) {
                             dispatch(setBalance(balance + parseInt(amount)))
-                            dispatch(addNewBlock(res))
                             dispatch(setIncome(parseInt(amount)))
+                            dispatch(addNewBlock(res))
                         }
                     })
             } catch (error) {
@@ -36,12 +36,12 @@ export const Transaction: FC<IProps> = ({ id, income, expense, infoBlocks }) => 
                 setAmount('')
             }
         }
-    };
+    }
 
     const handleWithdrawal = async () => {
         if (balance >= parseInt(amount) && amount) {
             try {
-                await TransactionService.withdrawal(parseInt(amount), id, balance, 'EXPENSE', infoBlocks, undefined, expense)
+                await TransactionService.withdrawal(parseInt(amount), id, balance, 'EXPENSE', infBlocks, undefined, finance.expense)
                     .then(res => {
                         if (res) {
                             dispatch(setBalance(balance - parseInt(amount)))
@@ -55,7 +55,7 @@ export const Transaction: FC<IProps> = ({ id, income, expense, infoBlocks }) => 
                 setAmount('')
             }
         }
-    };
+    }
 
     return (
         <div className={s.wrapper}>

@@ -1,4 +1,4 @@
-import { FC, use } from "react";
+import { FC } from "react";
 import { Card } from "@/components/card-info";
 import { Transaction } from "@/components/transaction";
 import { Transfer } from "@/components/transfer";
@@ -15,8 +15,8 @@ export const Cabinet: FC<UserDataSingle> = ({ user }) => {
         </section>
         <section className={s.container__block2}>
             <Statistics income={user.income} expense={user.expense} />
-            <Transaction id={user.id} income={user.income} expense={user.expense} infoBlocks={user.infoBlocks} />
-            <Transfer id={user.id} cardNumber={user.card.number} expense={user.expense} infoBlocks={user.infoBlocks} myFriends={user.friends} />
+            <Transaction id={user.id} />
+            <Transfer id={user.id} cardNumber={user.card.number} myFriends={user.friends} />
         </section>
     </main>
 }

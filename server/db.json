@@ -5,15 +5,56 @@
       "login": "eskabaro",
       "password": "asd123!@#",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 246,
-      "income": 401,
+      "balance": 687,
+      "income": 842,
       "expense": 155,
       "card": {
         "number": "0979270698256480",
         "date": "06/28",
         "cvv": 206
       },
-      "infoBlocks": [],
+      "infoBlocks": [
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 13:58:27 GMT+0300 (Москва, стандартное время)",
+          "amount": 1
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 13:58:30 GMT+0300 (Москва, стандартное время)",
+          "amount": 1
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:01:15 GMT+0300 (Москва, стандартное время)",
+          "amount": 13
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:01:18 GMT+0300 (Москва, стандартное время)",
+          "amount": 13
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:01:27 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:01:36 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:22:13 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:22:39 GMT+0300 (Москва, стандартное время)",
+          "amount": 113
+        }
+      ],
       "friends": [
         {
           "id": "1686916747237",
@@ -28,15 +69,96 @@
       "login": "user",
       "password": "1",
       "avatar": "/animals/mouse-3969805.png",
-      "balance": 2755,
-      "income": 2531,
-      "expense": 665,
+      "balance": 4355,
+      "income": 3861,
+      "expense": 992,
       "card": {
         "number": "0296991972167941",
         "date": "06/28",
         "cvv": 214
       },
-      "infoBlocks": [],
+      "infoBlocks": [
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 13:55:59 GMT+0300 (Москва, стандартное время)",
+          "amount": 11
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 13:56:04 GMT+0300 (Москва, стандартное время)",
+          "amount": 11
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 13:56:16 GMT+0300 (Москва, стандартное время)",
+          "amount": 12
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 13:56:17 GMT+0300 (Москва, стандартное время)",
+          "amount": 12
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 13:58:30 GMT+0300 (Москва, стандартное время)",
+          "amount": 1
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 14:01:15 GMT+0300 (Москва, стандартное время)",
+          "amount": 13
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 14:01:18 GMT+0300 (Москва, стандартное время)",
+          "amount": 13
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 14:01:27 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 14:01:36 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:07:33 GMT+0300 (Москва, стандартное время)",
+          "amount": 13
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:07:35 GMT+0300 (Москва, стандартное время)",
+          "amount": 13
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:11:31 GMT+0300 (Москва, стандартное время)",
+          "amount": 12
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:11:32 GMT+0300 (Москва, стандартное время)",
+          "amount": 12
+        },
+        {
+          "name": "Income",
+          "date": "Sun Jun 18 2023 14:11:34 GMT+0300 (Москва, стандартное время)",
+          "amount": 12
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 14:22:13 GMT+0300 (Москва, стандартное время)",
+          "amount": 100
+        },
+        {
+          "name": "Expense",
+          "date": "Sun Jun 18 2023 14:22:39 GMT+0300 (Москва, стандартное время)",
+          "amount": 113
+        }
+      ],
       "friends": []
     }
   ]

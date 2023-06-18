@@ -1,11 +1,17 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface IPayload {
    type: string,
    value: number
 }
 
-const initialState = {
+interface IState {
+   income: number
+   expense: number
+}
+
+const initialState: IState = {
    income: 0,
    expense: 0
 }
