@@ -28,15 +28,22 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-    const data = await UsersService.getUsers()
-
-    return {
-        paths: data.map(user => ({
-            params: {
-                id: user.id
-            }
-        })),
-        fallback: true
+    try {
+        const data = await UsersService.getUsers()
+    
+        return {
+            paths: data.map(user => ({
+                params: {
+                    id: user.id
+                }
+            })),
+            fallback: "blocking"
+        }    
+    } catch (error) {
+        return {
+            paths: [],
+            fallback: "blocking"
+        }
     }
 }
 
@@ -46,14 +53,21 @@ export const getStaticProps: GetStaticProps<UserDataSingle> = async ({
     try {
         const user = await UsersService.getUserById(String(params?.id))
 
-        return {
+        if (!user) {
+            return {
+                redirect: {
+                    destination: "/404",
+                    permanent: false
+                }
+            }
+        } else return {
             props: { user },
             revalidate: 60
         }
-    } catch (error) {
+    } catch {
         return {
             redirect: {
-                destination: '404',
+                destination: "/404",
                 permanent: false
             }
         }

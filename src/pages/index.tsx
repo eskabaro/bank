@@ -7,7 +7,7 @@ const HomePage: NextPage = () => null
 export const getServerSideProps: GetServerSideProps<Users> = async () => {
   const users = await UsersService.getUsers()
 
-  if (!users) {
+  if (!users.length) {
     return {
       redirect: {
         destination: '/register',
