@@ -14,18 +14,14 @@ export const UsersService = {
         return data[0]
     },
     async addNewFriend(id: string, myId: string, myFriends: IFriend[]) {
-        try {
-            const { data } = await axios.get<User>(`/users/${id}`)
-            const friend = GenerationUtils.generationFriend(data)
+        const { data } = await axios.get<User>(`/users/${id}`)
+        const friend = GenerationUtils.generationFriend(data)
 
-            if (data) await axios.patch(`users/${myId}`, {
-                friends: [...myFriends, friend]
-            })
+        if (data) await axios.patch(`users/${myId}`, {
+            friends: [...myFriends, friend]
+        })
 
-            return friend
-        } catch (error) {
-            console.error(error)
-        }
+        return friend
     },
     async deleteFriend(myId: string, newMyFriends: IFriend[]) {
         try {
@@ -50,15 +46,11 @@ export const UsersService = {
         }
     },
     async getUsersByName() {
-        try {
-            const { data } = await axios.get<User[]>('/users')
-            const sortData = data.map(e => {
-                return { id: e.id, login: e.login, avatar: e.avatar }
-            })
-            return sortData
-        } catch (error) {
-            console.error(error)
-        }
+        const { data } = await axios.get<User[]>('/users')
+        const sortData = data.map(e => {
+            return { id: e.id, login: e.login, avatar: e.avatar }
+        })
+        return sortData
     },
     async handleUserLogin(login: string) {
         try {

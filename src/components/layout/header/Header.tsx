@@ -28,9 +28,9 @@ export const Header: FC<IProps> = ({ userName, userAvatar, userId, userFriends }
     return <header className={s.head}>
         <Logo />
         <nav>
-            {userName && (
+            {userId && userName && userFriends && (
                 <>
-                    <Search name={userName} userId={userId} userFriends={userFriends}/>
+                    <Search name={userName} userId={userId} userFriends={userFriends} />
                     <span>
                         <Image src={userAvatar ? userAvatar : ''} alt="Avatar" width={18} height={18} />
                         {userName}

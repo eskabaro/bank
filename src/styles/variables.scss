@@ -24,6 +24,10 @@ $padding-form: 30px 50px;
     &:active {
         transform: scale(.99);
     }
+
+    &:disabled {
+        opacity: .7;
+    }
 }
 
 @mixin block {

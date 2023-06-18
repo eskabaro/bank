@@ -1,27 +1,33 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
+import Image from "next/image";
+import { useQuery } from "react-query";
 import { Item } from "./item/Item";
 import { UsersService } from "@/services/user.service";
-import { IFriend, ISortUser } from "@/interfaces/data";
-import Image from "next/image";
+import { IFriend, ISortUser, User } from "@/interfaces/data";
 import s from './Search.module.scss';
 
 interface IProps {
     name: string
-    userId?: string
-    userFriends?: IFriend[]
+    userId: string
+    userFriends: IFriend[]
 }
 
 export const Search: FC<IProps> = ({ name, userId, userFriends }) => {
-    
     const [value, setValue] = useState('')
     const [users, setUsers] = useState<ISortUser[]>()
 
-    useEffect(() => {
-        UsersService.getUsersByName()
-            .then(res => {
-                if (res) setUsers(res.filter(e => e.login !== name))
-            })
-    }, [])
+    const { isError } = useQuery(
+        'get user by name',
+        () => UsersService.getUsersByName(),
+        {
+            onSuccess: (data: User[]) => {
+                setUsers(data.filter(e => e.login !== name))
+            },
+            onError: () => {
+                alert('error')
+            }
+        }
+    )
 
     const filteredUsers = () => {
         if (value && users) {
@@ -29,6 +35,8 @@ export const Search: FC<IProps> = ({ name, userId, userFriends }) => {
             return sortUsers
         }
     }
+
+    if (isError) return <h1>error</h1>
 
     return <div className={s.wrapper}>
         <label>

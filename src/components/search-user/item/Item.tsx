@@ -1,9 +1,10 @@
 import { FC, useState } from "react";
+import Image from "next/image";
 import { UsersService } from "@/services/user.service";
 import { useAppDispatch } from "@/store/hook";
 import { addFriend } from "@/store/slices/transfer";
+import { useMutation } from "react-query";
 import type { IFriend } from "@/interfaces/data";
-import Image from "next/image";
 import s from './Item.module.scss';
 
 interface IProps {
@@ -11,8 +12,8 @@ interface IProps {
     name: string
     avatar: string
     setValue: (value: string) => void
-    userId?: string
-    userFriends?: IFriend[]
+    userId: string
+    userFriends: IFriend[]
 }
 
 export const Item: FC<IProps> = ({ name, avatar, id, setValue, userId, userFriends }) => {
@@ -21,11 +22,25 @@ export const Item: FC<IProps> = ({ name, avatar, id, setValue, userId, userFrien
 
     const dispatch = useAppDispatch()
 
-    const handleAddFriend = () => {
+    const { mutateAsync } = useMutation(
+        'add new friend',
+        () => UsersService.addNewFriend(id, userId, userFriends),
+        {
+            onSuccess: (data: IFriend) => {
+                dispatch(addFriend(data))
+                setValue('')
+            },
+            onError: () => {
+                alert('error')
+            }
+        }
+    )
+
+    const handleAddFriend = async () => {
         const friend = userFriends?.find(e => e.id === id)
-        if (userId && userFriends && !friend) UsersService.addNewFriend(id, userId, userFriends)
-            .then(res => res && dispatch(addFriend(res)))
-            .finally(() => setValue(''))
+        if (!friend) {
+            await mutateAsync()
+        }
     }
 
     return <button

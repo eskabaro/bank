@@ -16,8 +16,9 @@ const initialState: IState = {
 }
 
 interface IPayload {
-   amount: number,
    name: string
+   date: string
+   amount: number
 }
 
 const Informations = createSlice({
@@ -25,12 +26,7 @@ const Informations = createSlice({
    initialState,
    reducers: {
       addNewBlock: (state, action: PayloadAction<IPayload>) => { 
-         const block = {
-            name: action.payload.name,
-            date: String(new Date),
-            amount: action.payload.amount
-         }
-         state.blocks.push(block)
+         state.blocks.push(action.payload)
       },
       setBlocks: (state, action: PayloadAction<IBlock[]>) => {
          state.blocks = action.payload
