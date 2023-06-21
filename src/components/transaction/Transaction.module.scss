@@ -14,13 +14,13 @@
         margin-top: 10px;
         display: flex;
 
-        >button:nth-child(1) {
+        >.income {
             background-color: $color-green;
             width: 50%;
             @include button;
         }
 
-        >button:nth-child(2) {
+        >.expense {
             background-color: $color-purple;
             width: 50%;
             @include button;

@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic"
 import { FC, PropsWithChildren } from "react"
+import { ToastContainer } from "react-toastify"
 import { Meta } from "../seo/Meta"
 import { Header } from './header/Header'
 import { Mukta } from 'next/font/google'
@@ -28,6 +29,7 @@ export const Layout: FC<ILayoutProps> = ({ children, title, description, userNam
                     userAvatar={userAvatar}
                     userFriends={userFriends}
                     userId={userId} />
+                <ToastContainer />
 
                 {children}
 

@@ -1,10 +1,18 @@
 import { FC, useState } from "react";
-import { TopUp } from "@/ui/btn-topup";
-import { Withdrawal } from "@/ui/btn-withdrawal";
+import Income from "@/ui/btn-income/Income";
+import Expense from "@/ui/btn-expense/Expense";
 import s from './Transaction.module.scss';
 
+export interface IPropsWitHoc {
+    id: string
+    amount: number
+    infoType: string
+    setAmount: (e: string) => void
+    transaction?: () => void
+}
+
 interface IProps {
-    id: string; 
+    id: string
 }
 
 export const Transaction: FC<IProps> = ({ id }) => {
@@ -21,9 +29,9 @@ export const Transaction: FC<IProps> = ({ id }) => {
                 />
             </label>
             <div>
-                <TopUp id={id} amount={parseInt(amount)} setAmount={setAmount} />
-                <Withdrawal id={id} amount={parseInt(amount)} setAmount={setAmount} />
+                <Income id={id} amount={parseInt(amount)} setAmount={setAmount} infoType='INCOME' />
+                <Expense id={id} amount={parseInt(amount)} setAmount={setAmount} infoType='EXPENSE' />
             </div>
         </div>
-    );
-};
+    )
+}

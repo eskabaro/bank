@@ -10,6 +10,7 @@ import { setExpense } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
 import s from './Transfer.module.scss'
 
+
 export interface IFormInput {
     number: string
 }

@@ -2,8 +2,10 @@ import { FC, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { UsersService } from "@/services/user.service";
-import s from './Register.module.scss'
 import { CreateUserUtils } from "@/utilities/create.user.utils";
+import { ToastContainer, toast } from "react-toastify";
+import s from './Register.module.scss'
+import 'react-toastify/dist/ReactToastify.css';
 
 export interface IFormInput {
     login: string,
@@ -28,11 +30,22 @@ export const Register: FC<IProps> = ({ numbers }) => {
         mode: 'onBlur'
     })
 
-    const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        UsersService.handleUserLogin(data.login).then(res => {
-            if (!res?.length) {
+    const notifyError = () => toast.error('Failed to create an account.', {
+        position: "top-right",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    })
+
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        await UsersService.handleUserLogin(data.login).then(res => {
+            if (!res) {
                 UsersService.addNewUser(CreateUserUtils.createUser(data, numbers))
                     .then(res => res && route.push('/login'))
+                    .catch(() => notifyError())
             } else setErrorLogin('This name is already taken')
         })
     }
@@ -45,6 +58,7 @@ export const Register: FC<IProps> = ({ numbers }) => {
     }
 
     return <div className={s.wrapper}>
+        <ToastContainer />
         <h1>Registration</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>

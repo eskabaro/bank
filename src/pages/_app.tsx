@@ -2,7 +2,7 @@ import '@/styles/globals.scss'
 import { Provider } from 'react-redux'
 import store from '@/store/store'
 import type { AppProps } from 'next/app'
-import { QueryClientProvider, QueryClient } from 'react-query'
+import { QueryClientProvider, QueryClient } from 'react-query' 
 
 const queryClient = new QueryClient({
   defaultOptions: {
