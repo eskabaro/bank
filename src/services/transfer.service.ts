@@ -12,20 +12,22 @@ export const TransferService = {
         try {
             const user = await axios.get<User[]>(`/users?card.number=${friendNumber}&_limit=1`)
             if (user.status === 200) {
-                await axios.patch<User>(`/users/${user.data[0].id}`, {
-                    balance: user.data[0].balance + amount,
-                    infoBlocks: [...user.data[0].infoBlocks, GenerationUtils.generationInfoBlock('Income', amount)],
-                    income: user.data[0].income + amount
-                })
-                await axios.patch<User>(`users/${id}`, {
-                    balance: currentBalance - amount,
-                    infoBlocks: [...infoBlocks, blockExpense],
-                    expense: expense + amount
-                })
+                await Promise.all([
+                    axios.patch<User>(`/users/${user.data[0].id}`, {
+                        balance: user.data[0].balance + amount,
+                        infoBlocks: [...user.data[0].infoBlocks, GenerationUtils.generationInfoBlock('Income', amount)],
+                        income: user.data[0].income + amount
+                    }),
+                    axios.patch<User>(`users/${id}`, {
+                        balance: currentBalance - amount,
+                        infoBlocks: [...infoBlocks, blockExpense],
+                        expense: expense + amount
+                    })
+                ])
                 return blockExpense
             }
         } catch (error) {
-            console.error(error)
+            alert(error)
         }
     }
 }

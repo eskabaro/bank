@@ -37,7 +37,6 @@ export const UsersService = {
         await axios.post<User>('/users', user, {
             headers: { 'Content-Type': 'application/json' }
         })
-        return true
     },
     async getUsersByName() {
         const { data } = await axios.get<User[]>('/users', { headers: { 'Content-Type': 'application/json' } })

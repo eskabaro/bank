@@ -64,6 +64,7 @@
 
         >input { // btn submit
             @include button;
+            cursor: pointer;
             margin: auto;
             color: #000;
             width: fit-content;

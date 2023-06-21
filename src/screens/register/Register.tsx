@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
+import { useMutation } from "react-query";
 import { useRouter } from "next/router";
+import { useAlert } from "@/hooks/useAlert";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { UsersService } from "@/services/user.service";
 import { CreateUserUtils } from "@/utilities/create.user.utils";
-import { ToastContainer, toast } from "react-toastify";
+import { Loader } from "@/ui/loader";
 import s from './Register.module.scss'
-import 'react-toastify/dist/ReactToastify.css';
 
 export interface IFormInput {
     login: string,
@@ -18,7 +19,8 @@ interface IProps {
 }
 
 export const Register: FC<IProps> = ({ numbers }) => {
-    const [errorLogin, setErrorLogin] = useState('')
+    const [errorLogin, setErrorLogin] = useState<string>('')
+    const [btnDisabled, setBtnDisabled] = useState<boolean>(false)
     const route = useRouter()
 
     const {
@@ -30,22 +32,29 @@ export const Register: FC<IProps> = ({ numbers }) => {
         mode: 'onBlur'
     })
 
-    const notifyError = () => toast.error('Failed to create an account.', {
-        position: "top-right",
-        autoClose: 5000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-    })
+    const [notify] = useAlert()
+
+    const handleRegister = useMutation('handleRegister',
+        (data: IFormInput) => UsersService.addNewUser(CreateUserUtils.createUser(data, numbers)),
+        {
+            onSuccess: () => {
+                notify('Account created successfully', 'success', 3000, false)
+                setTimeout(() => {
+                    route.push('/login')
+                    setBtnDisabled(false)
+                }, 3000)
+            },
+            onError: () => {
+                notify('Failed to create an account', 'error', 3000, false)
+            }
+        }
+    )
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         await UsersService.handleUserLogin(data.login).then(res => {
             if (!res) {
-                UsersService.addNewUser(CreateUserUtils.createUser(data, numbers))
-                    .then(res => res && route.push('/login'))
-                    .catch(() => notifyError())
+                setBtnDisabled(true)
+                handleRegister.mutateAsync(data)
             } else setErrorLogin('This name is already taken')
         })
     }
@@ -58,7 +67,6 @@ export const Register: FC<IProps> = ({ numbers }) => {
     }
 
     return <div className={s.wrapper}>
-        <ToastContainer />
         <h1>Registration</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>
@@ -107,7 +115,11 @@ export const Register: FC<IProps> = ({ numbers }) => {
                 <input type="checkbox" onChange={() => setShovePassword(!shovePassword)} />
                 <p>Show password</p>
             </label>
-            <input type="submit" value={'Create account'} />
+            {!handleRegister.isLoading ? (
+                <input type="submit" value={'Create account'} disabled={btnDisabled} />
+            ) : (
+                <Loader width='30px' hieght='30px' />
+            )}
         </form>
     </div>
 }

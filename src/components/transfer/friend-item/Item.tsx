@@ -1,11 +1,9 @@
-import { FC, useState } from "react";
 import Image from "next/image";
+import { FC, useState } from "react";
 import { Modal } from "@/ui/modal-delete-friend/Modal";
-import { TransferService } from "@/services/transfer.service";
-import { useAppDispatch, useAppSelector } from "@/store/hook";
-import { setBalance } from "@/store/slices/transaction";
-import { setExpense } from "@/store/slices/statistics";
-import { addNewBlock } from "@/store/slices/informations";
+import { useAppSelector } from "@/store/hook";
+import { useTransfer } from "@/hooks/useTransfer";
+import { useAlert } from "@/hooks/useAlert";
 import type { IFriend } from "@/interfaces/data";
 import s from './Item.module.scss';
 
@@ -21,22 +19,28 @@ interface IProps {
 export const Item: FC<IProps> = ({ avatar, name, id, cardNumberFriend, idAuthUser, myFriends }) => {
    const [active, setActive] = useState(false)
    const balance = useAppSelector(state => state.transaction.balance)
-   const infBlocks = useAppSelector(state => state.informations.blocks)
-   const finance = useAppSelector(state => state.statistics)
 
-   const dispatch = useAppDispatch()
    const removeFriend = () => setActive(true)
    const regex = /^[0-9]+$/
 
+   const [handleTransfer] = useTransfer()
+   const [notify] = useAlert()
+
    const transferFriend = () => {
       const amount = prompt(`Enter amount for ${name}:`)
-      if (amount && regex.test(amount) && parseInt(amount) <= balance && amount !== cardNumberFriend) {
-         TransferService.handleNumber(cardNumberFriend, parseInt(amount), idAuthUser, balance, infBlocks, finance.expense)
-            .then(res => res && dispatch(addNewBlock(res)))
-            .finally(() => {
-               dispatch(setBalance(balance - parseInt(amount)))
-               dispatch(setExpense(parseInt(amount)))
-            })
+      if (amount) {
+         if (regex.test(amount) && parseInt(amount) <= balance) {
+            const props = {
+               cardNumber: cardNumberFriend,
+               amount,
+               id: idAuthUser,
+            }
+            handleTransfer(props)
+         } else if (!regex.test(amount)) {
+            notify('You entered an invalid value', 'error', 3000)
+         } else if (parseInt(amount) >= balance) {
+            notify('You don\'t have enough money', 'error', 3000)
+         }
       }
    }
 

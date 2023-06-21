@@ -1,9 +1,10 @@
-import { FC, useState } from "react";
 import Image from "next/image";
+import { FC, useState } from "react";
 import { UsersService } from "@/services/user.service";
 import { useAppDispatch } from "@/store/hook";
 import { addFriend } from "@/store/slices/transfer";
 import { useMutation } from "react-query";
+import { useAlert } from "@/hooks/useAlert";
 import type { IFriend } from "@/interfaces/data";
 import s from './Item.module.scss';
 
@@ -18,8 +19,9 @@ interface IProps {
 
 export const Item: FC<IProps> = ({ name, avatar, id, setValue, userId, userFriends }) => {
     const [active, setActive] = useState(false)
-    setTimeout(() => setActive(true), 300)
+    const [notify] = useAlert()
 
+    setTimeout(() => setActive(true), 300)
     const dispatch = useAppDispatch()
 
     const { mutateAsync } = useMutation(
@@ -29,9 +31,11 @@ export const Item: FC<IProps> = ({ name, avatar, id, setValue, userId, userFrien
             onSuccess: (data: IFriend) => {
                 dispatch(addFriend(data))
                 setValue('')
+                notify('User added to friends list', 'success', 3000)
             },
             onError: () => {
                 alert('error')
+                notify('Failed to add user to friends list', 'error', 3000)
             }
         }
     )
@@ -40,7 +44,7 @@ export const Item: FC<IProps> = ({ name, avatar, id, setValue, userId, userFrien
         const friend = userFriends?.find(e => e.id === id)
         if (!friend) {
             await mutateAsync()
-        }
+        } else notify('This user is already in your friends list', 'error', 3000)
     }
 
     return <button

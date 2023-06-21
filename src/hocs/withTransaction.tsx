@@ -1,14 +1,13 @@
-import { ComponentType } from "react"
-import { IPropsWitHoc } from "@/components/transaction"
-import { TransactionService } from "@/services/transaction.service"
-import { useAppDispatch, useAppSelector } from "@/store/hook"
-import { useMutation } from "react-query"
-import { setBalance } from "@/store/slices/transaction"
-import { setExpense, setIncome } from "@/store/slices/statistics"
-import { addNewBlock } from "@/store/slices/informations"
-import { IStatisticBlock } from "@/interfaces/data"
-import { toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
+import { ComponentType } from "react";
+import { IPropsWitHoc } from "@/components/transaction";
+import { TransactionService } from "@/services/transaction.service";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { useMutation } from "react-query";
+import { setBalance } from "@/store/slices/transaction";
+import { setExpense, setIncome } from "@/store/slices/statistics";
+import { addNewBlock } from "@/store/slices/informations";
+import { IStatisticBlock } from "@/interfaces/data";
+import { useAlert } from "@/hooks/useAlert";
 
 
 export const withTransaction = (Component: ComponentType<IPropsWitHoc>) => {
@@ -20,18 +19,7 @@ export const withTransaction = (Component: ComponentType<IPropsWitHoc>) => {
 
         const dispatch = useAppDispatch()
 
-        const notify = (message: string, type: "success" | "error") => {
-            toast[type](message, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            })
-        }
+        const [notify] = useAlert()
 
         const income = useMutation('income',
             () => TransactionService.topUp(amount, id, balance, infoType, blocks, statistic.income),
@@ -41,10 +29,10 @@ export const withTransaction = (Component: ComponentType<IPropsWitHoc>) => {
                     dispatch(setBalance(balance + amount))
                     dispatch(setIncome(amount))
                     dispatch(addNewBlock(data))
-                    notify('Balance successfully replenished', 'success')
+                    notify('Balance successfully replenished', 'success', 3000)
                 },
                 onError: () => {
-                    notify('Failed to top up balance', 'error')
+                    notify('Failed to top up balance', 'error', 3000)
                 }
             })
 
@@ -56,10 +44,10 @@ export const withTransaction = (Component: ComponentType<IPropsWitHoc>) => {
                     dispatch(setBalance(balance - amount))
                     dispatch(setExpense(amount))
                     dispatch(addNewBlock(data))
-                    notify('Funds have been successfully withdrawn', 'success')
+                    notify('Funds have been successfully withdrawn', 'success', 3000)
                 },
                 onError: () => {
-                    notify('Failed to withdrawal balance', 'error')
+                    notify('Failed to withdrawal balance', 'error', 3000)
                 }
             })
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { withTransaction } from "@/hoc/withTransaction";
+import { withTransaction } from "@/hocs/withTransaction";
 import { IPropsWitHoc } from "@/components/transaction";
 import s from '../../components/transaction/Transaction.module.scss'
 
