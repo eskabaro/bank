@@ -7,7 +7,7 @@ import { setExpense } from "@/store/slices/statistics"
 import { addNewBlock } from "@/store/slices/informations"
 import { useAlert } from "./useAlert"
 
-export const useTransfer = () => {
+export const useTransfer = (): [(props: ITransferProps) => void] => {
     const dispatch = useAppDispatch()
     const balance = useAppSelector(state => state.transaction.balance)
     const infBlocks = useAppSelector(state => state.informations.blocks)

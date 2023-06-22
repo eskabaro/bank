@@ -9,6 +9,8 @@ export interface IPropsWitHoc {
     infoType: string
     setAmount: (e: string) => void
     transaction?: () => void
+    isLoadingExpense?: boolean
+    isLoadingIncome?: boolean
 }
 
 interface IProps {

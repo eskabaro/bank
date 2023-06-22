@@ -5,26 +5,15 @@
       "login": "user",
       "password": "1",
       "avatar": "/animals/elephant-3969722.png",
-      "balance": 646,
-      "income": 204,
-      "expense": 354,
+      "balance": 0,
+      "income": 0,
+      "expense": 0,
       "card": {
         "number": "1988525199808434",
         "date": "06/28",
         "cvv": 885
       },
-      "infoBlocks": [
-        {
-          "name": "Expense",
-          "date": "Wed Jun 21 2023 19:51:26 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Expense",
-          "date": "Wed Jun 21 2023 20:00:22 GMT+0300 (Москва, стандартное время)",
-          "amount": 11
-        }
-      ],
+      "infoBlocks": [],
       "friends": []
     },
     {
@@ -32,54 +21,16 @@
       "login": "biba",
       "password": "1",
       "avatar": "/animals/frog-3969785.png",
-      "balance": 864,
-      "income": 1455,
-      "expense": 247,
+      "balance": 0,
+      "income": 0,
+      "expense": 0,
       "card": {
         "number": "5168086713244136",
         "date": "06/28",
         "cvv": 354
       },
-      "infoBlocks": [
-        {
-          "name": "Expense",
-          "date": "Wed Jun 21 2023 19:43:39 GMT+0300 (Москва, стандартное время)",
-          "amount": 1
-        },
-        {
-          "name": "Expense",
-          "date": "Wed Jun 21 2023 19:43:44 GMT+0300 (Москва, стандартное время)",
-          "amount": 1
-        },
-        {
-          "name": "Expense",
-          "date": "Wed Jun 21 2023 19:46:19 GMT+0300 (Москва, стандартное время)",
-          "amount": 1
-        },
-        {
-          "name": "Expense",
-          "date": "Wed Jun 21 2023 19:46:29 GMT+0300 (Москва, стандартное время)",
-          "amount": 1
-        },
-        {
-          "name": "Income",
-          "date": "Wed Jun 21 2023 19:51:26 GMT+0300 (Москва, стандартное время)",
-          "amount": 100
-        },
-        {
-          "name": "Income",
-          "date": "Wed Jun 21 2023 20:00:22 GMT+0300 (Москва, стандартное время)",
-          "amount": 11
-        }
-      ],
-      "friends": [
-        {
-          "id": "1687359579195",
-          "name": "user",
-          "avatar": "/animals/elephant-3969722.png",
-          "cardNumber": "1988525199808434"
-        }
-      ]
+      "infoBlocks": [],
+      "friends": []
     }
   ]
 }

@@ -62,6 +62,8 @@ export const withTransaction = (Component: ComponentType<IPropsWitHoc>) => {
         return <Component
             {...props}
             transaction={transaction}
+            isLoadingExpense={expense.isLoading}
+            isLoadingIncome={income.isLoading}
         />
     }
 }
