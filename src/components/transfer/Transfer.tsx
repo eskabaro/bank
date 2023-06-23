@@ -6,17 +6,11 @@ import { IFriend } from "@/interfaces/data";
 import { Item } from "./friend-item";
 import { useTransfer } from "@/hooks/useTransfer";
 import { useAlert } from "@/hooks/useAlert";
+import { Loader } from "@/ui/loader";
 import s from './Transfer.module.scss'
 
 export interface IFormInput {
     number: string
-}
-
-export interface ITransferProps {
-    cardNumber: string
-    amount: string,
-    id: string
-    reset?: () => void
 }
 
 interface IProps {
@@ -37,14 +31,14 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, myFriends }) => {
         reset
     } = useForm<IFormInput>()
 
-    const [handleTransfer] = useTransfer()
+    const [handleTransfer, isLoading] = useTransfer()
     const [notify] = useAlert()
 
     const transfer: SubmitHandler<IFormInput> = (data): void => {
         const amount = prompt(`Enter amount for transfer:`)
         if (amount) {
-            if (regex.test(amount) && parseInt(amount) <= balance && amount !== cardNumber) {
-                const props: ITransferProps = {
+            if (regex.test(amount) && parseInt(amount) <= balance && data.number !== cardNumber) {
+                const props = {
                     cardNumber: data.number,
                     amount,
                     id,
@@ -55,6 +49,8 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, myFriends }) => {
                 notify('You entered an invalid value', 'error', 3000)
             } else if (parseInt(amount) >= balance) {
                 notify('You don\'t have enough money', 'error', 3000)
+            } else if (data.number === data.number) {
+                notify('Card number error', 'error', 3000)
             }
         }
     }
@@ -75,11 +71,16 @@ export const Transfer: FC<IProps> = ({ id, cardNumber, myFriends }) => {
             })}
                 type="number"
                 placeholder="Enter card number" />
-            <button type="submit">Send</button>
+            <button type="submit">{
+                isLoading ? (
+                    <Loader width="15px" hieght="15px" />
+                ) : (
+                    'Send'
+                )
+            }</button>
         </label>
         <div style={{ marginTop: '10px' }}>
-            {friends
-                .map((e: IFriend) =>
+            {friends.map((e: IFriend) =>
                     <Item key={e.id}
                         id={e.id}
                         idAuthUser={id}

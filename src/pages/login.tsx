@@ -31,7 +31,6 @@ export const getServerSideProps: GetServerSideProps<Users> = async ({
             props: { users }
         }
     } catch (error) {
-
         return {
             redirect: {
                 destination: `404`,

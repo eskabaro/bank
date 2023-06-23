@@ -6,28 +6,24 @@ import type { IStatisticBlock } from "@/interfaces/data";
 axios.defaults.baseURL = 'http://localhost:4200';
 
 export const TransferService = {
-    async handleNumber(friendNumber: string, amount: number, id: string, currentBalance: number, infoBlocks: IStatisticBlock[], expense: number) {
+    async fetchByCardNumber(friendCardNumber: string): Promise<User> {
+        const { data } = (await axios.get(`users?card.number=${friendCardNumber}&_limit=1`))
+        return data[0]
+    },
+    async patchUser(friendUser: User, authId: string, amount: number, currentBalance: number, infoBlocks: IStatisticBlock[], expense: number) {
         const blockExpense = GenerationUtils.generationInfoBlock('Expense', amount)
-
-        try {
-            const user = await axios.get<User[]>(`/users?card.number=${friendNumber}&_limit=1`)
-            if (user.status === 200) {
-                await Promise.all([
-                    axios.patch<User>(`/users/${user.data[0].id}`, {
-                        balance: user.data[0].balance + amount,
-                        infoBlocks: [...user.data[0].infoBlocks, GenerationUtils.generationInfoBlock('Income', amount)],
-                        income: user.data[0].income + amount
-                    }),
-                    axios.patch<User>(`users/${id}`, {
-                        balance: currentBalance - amount,
-                        infoBlocks: [...infoBlocks, blockExpense],
-                        expense: expense + amount
-                    })
-                ])
-                return blockExpense
-            }
-        } catch (error) {
-            alert(error)
-        }
+        await axios.all([
+            axios.patch<User>(`/users/${friendUser.id}`, {
+                balance: friendUser.balance + amount,
+                infoBlocks: [...friendUser.infoBlocks, GenerationUtils.generationInfoBlock('Income', amount)],
+                income: friendUser.income + amount
+            }),
+            axios.patch<User>(`users/${authId}`, {
+                balance: currentBalance - amount,
+                infoBlocks: [...infoBlocks, blockExpense],
+                expense: expense + amount
+            })
+        ]).catch(console.log)
+        return blockExpense
     }
 }

@@ -1,8 +1,8 @@
-import '@/styles/globals.scss'
-import { Provider } from 'react-redux'
-import store from '@/store/store'
-import type { AppProps } from 'next/app'
-import { QueryClientProvider, QueryClient } from 'react-query' 
+import '@/styles/globals.scss';
+import store from '@/store/store';
+import { Provider } from 'react-redux';
+import { QueryClientProvider, QueryClient } from 'react-query' ;
+import type { AppProps } from 'next/app';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false
     }
   }
-})
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -19,5 +19,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Provider>
     </QueryClientProvider>
-  )
-}
+  );
+};
