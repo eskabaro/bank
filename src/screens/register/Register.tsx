@@ -14,9 +14,7 @@ export interface IFormInput {
     reapetPassword: string
 }
 
-interface IProps {
-    numbers: string[]
-}
+interface IProps { numbers: string[] }
 
 export const Register: FC<IProps> = ({ numbers }) => {
     const [errorLogin, setErrorLogin] = useState<string>('')

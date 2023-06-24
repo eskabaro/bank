@@ -8,7 +8,7 @@ const LoginPage: NextPage<Users> = ({ users }) => {
     return <Layout title='Login'>
         <Login users={users} />
     </Layout>
-}
+};
 
 export const getServerSideProps: GetServerSideProps<Users> = async ({
     req
@@ -38,6 +38,6 @@ export const getServerSideProps: GetServerSideProps<Users> = async ({
             }
         }
     }
-}
+};
 
-export default LoginPage
+export default LoginPage;

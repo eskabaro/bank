@@ -13,9 +13,7 @@ export interface IPropsWitHoc {
     isLoadingIncome?: boolean
 }
 
-interface IProps {
-    id: string
-}
+interface IProps { id: string }
 
 export const Transaction: FC<IProps> = ({ id }) => {
     const [amount, setAmount] = useState<string>('')

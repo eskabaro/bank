@@ -43,9 +43,10 @@ export const useTransfer = (): [(props: ITransferProps) => void, boolean] => {
         await useClient.fetchQuery('getUserByCardNumber', () => TransferService.fetchByCardNumber(props.cardNumber)
             .then(data => {
                 if (data) {
-                    handleUpDateUser.mutateAsync({ data, id: props.id, amount: parseInt(props.amount) });
-                } else notify('User not found', 'error', 3000)
-            }))
+                    handleUpDateUser.mutateAsync({ data, id: props.id, amount: parseInt(props.amount) })
+                        .then(() => props.reset && props.reset());
+                } else notify('User not found', 'error', 3000);
+            }));
     };
 
     return [handleTransfer, handleUpDateUser.isLoading];

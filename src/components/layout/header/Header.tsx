@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { Logo } from "@/ui/logo";
 import { Login } from "@/ui/btn-login";
@@ -15,7 +16,8 @@ interface IProps {
 }
 
 export const Header: FC<IProps> = ({ userName, userAvatar, userId, userFriends }) => {
-    const [authorized, setAuthorized] = useState<boolean>()
+    const [authorized, setAuthorized] = useState<boolean>();
+    const { pathname } = useRouter();
 
     useEffect(() => {
         const userAuthorized: string = document.cookie
@@ -23,7 +25,7 @@ export const Header: FC<IProps> = ({ userName, userAvatar, userId, userFriends }
         if (userAuthorized) {
             setAuthorized(true)
         } else setAuthorized(false)
-    }, [])
+    }, []);
 
     return <header className={s.head}>
         <Logo />
@@ -37,9 +39,9 @@ export const Header: FC<IProps> = ({ userName, userAvatar, userId, userFriends }
                     </span>
                 </>
             )}
-            {authorized ? <Logout /> : <Login />}
+            {authorized ? <Logout /> : pathname === '/login' ? null : <Login />}
         </nav>
     </header>
-}
+};
 
-export default Header
+export default Header;
