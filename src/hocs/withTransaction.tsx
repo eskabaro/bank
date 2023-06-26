@@ -1,14 +1,15 @@
 import { ComponentType } from "react";
+import { useMutation } from "react-query";
+
 import { IPropsWitHoc } from "@/components/transaction";
 import { TransactionService } from "@/services/transaction.service";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
-import { useMutation } from "react-query";
 import { setBalance } from "@/store/slices/transaction";
 import { setExpense, setIncome } from "@/store/slices/statistics";
 import { addNewBlock } from "@/store/slices/informations";
-import { IStatisticBlock } from "@/interfaces/data";
 import { useAlert } from "@/hooks/useAlert";
 
+import { IStatisticBlock } from "@/interfaces/data";
 
 export const withTransaction = (Component: ComponentType<IPropsWitHoc>) => {
     return function (props: IPropsWitHoc) {

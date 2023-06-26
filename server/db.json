@@ -1,3 +1,20 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "1687805381836",
+      "login": "user",
+      "password": "asd123!@#",
+      "avatar": "/animals/lion-3969803.png",
+      "balance": 0,
+      "income": 0,
+      "expense": 0,
+      "card": {
+        "number": "9695833684499523",
+        "date": "06/28",
+        "cvv": 36
+      },
+      "infoBlocks": [],
+      "friends": []
+    }
+  ]
 }

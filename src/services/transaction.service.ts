@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GenerationUtils } from "@/utilities/generation.utils"
+import { GenerationUtils } from "@/utils/generation.utils"
 import type { IStatisticBlock, User } from "@/interfaces/data"
 
 axios.defaults.baseURL = 'http://localhost:4200'

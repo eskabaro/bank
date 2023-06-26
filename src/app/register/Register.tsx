@@ -1,11 +1,15 @@
+'use client'
+
 import { FC, useState } from "react";
 import { useMutation } from "react-query";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useAlert } from "@/hooks/useAlert";
 import { useForm, SubmitHandler } from "react-hook-form";
+
 import { UsersService } from "@/services/user.service";
-import { CreateUserUtils } from "@/utilities/create.user.utils";
+import { CreateUserUtils } from "@/utils/create.user.utils";
 import { Loader } from "@/ui/loader";
+
 import s from './Register.module.scss'
 
 export interface IFormInput {
@@ -37,10 +41,8 @@ export const Register: FC<IProps> = ({ numbers }) => {
         {
             onSuccess: () => {
                 notify('Account created successfully', 'success', 3000, false)
-                setTimeout(() => {
-                    route.push('/login')
-                    setBtnDisabled(false)
-                }, 3000)
+                route.push('/login')
+                setBtnDisabled(false)
             },
             onError: () => {
                 notify('Failed to create an account', 'error', 3000, false)

@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { IFriend, User } from "@/interfaces/data";
-import { GenerationUtils } from "@/utilities/generation.utils";
+import { GenerationUtils } from "@/utils/generation.utils";
 
 axios.defaults.baseURL = 'http://localhost:4200/';
 
@@ -10,6 +10,7 @@ export const UsersService = {
         return data
     },
     async getUserById(id: string): Promise<User> {
+        debugger
         const { data } = await axios.get<User[]>(`/users?id=${id}`, { headers: { 'Content-Type': 'application/json' } })
         return data[0]
     },

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GenerationUtils } from "@/utilities/generation.utils";
+import { GenerationUtils } from "@/utils/generation.utils";
 import type { User } from "@/interfaces/data";
 import type { IStatisticBlock } from "@/interfaces/data";
 

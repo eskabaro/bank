@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { setBlocks } from "@/store/slices/informations";
-import { GesUtils } from "@/utilities/gets.utils";
+import { GesUtils } from "@/utils/gets.utils";
 import type { IStatisticBlock } from "@/interfaces/data";
 import s from './Information.module.scss'
 

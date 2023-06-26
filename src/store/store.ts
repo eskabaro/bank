@@ -3,13 +3,15 @@ import transactionReducer from './slices/transaction';
 import transferReduser from './slices/transfer';
 import statisticsReducer from './slices/statistics';
 import informationsReduser from './slices/informations'
+import setUserReducer from './slices/auth.user';
 
 const store = configureStore({
     reducer: {
         transaction: transactionReducer,
         transfer: transferReduser,
         statistics: statisticsReducer,
-        informations: informationsReduser
+        informations: informationsReduser,
+        setUser: setUserReducer
     }
 }) 
 

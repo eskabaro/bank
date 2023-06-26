@@ -1,8 +1,11 @@
 import { FC, useEffect, useState } from "react";
-import { useAppSelector } from "@/store/hook";
-import type { ICard } from "@/interfaces/data";
-import dynamic from 'next/dynamic';
 import Image from "next/image";
+import dynamic from 'next/dynamic';
+
+import { useAppSelector } from "@/store/hook";
+
+import type { ICard } from "@/interfaces/data";
+
 import s from './Card.module.scss';
 
 interface IProps {
