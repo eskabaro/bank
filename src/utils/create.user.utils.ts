@@ -1,4 +1,4 @@
-import type { IFormInput } from "@/screens/register"
+import type { IFormInput } from "@/app/register/Register"
 import type { User } from "@/interfaces/data"
 import { AvatarUutils } from "./avatar.utils"
 import { CardUtils } from "./card.utils"
