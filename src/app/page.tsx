@@ -1,19 +1,20 @@
-import { GetServerSideProps, NextPage } from "next";
+import { User } from "@/interfaces/data";
 import { UsersService } from "@/services/user.service";
+import { redirect } from 'next/navigation'
 
-export const getServerSideProps: GetServerSideProps = async () => {
+const getData = async (): Promise<User[]> => {
    const users = await UsersService.getUsers()
-
-   return {
-      redirect: {
-         destination: users.length ? '/login' : '/register',
-         permanent: false
-      }
-   }
+   return users
 }
 
-const HomePage: NextPage = () => {
-   return null
+const HomePage = async (): Promise<never> => {
+   const data = await getData()
+
+   if (!data.length) {
+      redirect('/register')
+   } else {
+      redirect('/login')
+   }
 }
 
 export default HomePage
