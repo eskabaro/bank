@@ -1,5 +1,3 @@
-
-
 export const CardUtils = {
     createCardNumber(numbers: string[]): string {
         let cardNumber = ''
