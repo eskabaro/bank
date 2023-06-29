@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server -w server/db.json -p 4200",
-    "build-with-server": "next build && json-server -w server/db.json -p 4200"
+    "server": "json-server -w server/db.json -p 4200"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
