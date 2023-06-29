@@ -2,7 +2,7 @@ import axios from "axios";
 import type { IFriend, User } from "@/interfaces/data";
 import { GenerationUtils } from "@/utils/generation.utils";
 
-axios.defaults.baseURL = 'http://localhost:4200/';
+axios.defaults.baseURL = 'https://users-bank-data.onrender.com';
 
 export const UsersService = {
     async getUsers(): Promise<User[]> {

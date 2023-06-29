@@ -3,7 +3,7 @@ import { GenerationUtils } from "@/utils/generation.utils";
 import type { User } from "@/interfaces/data";
 import type { IStatisticBlock } from "@/interfaces/data";
 
-axios.defaults.baseURL = 'http://localhost:4200';
+axios.defaults.baseURL = 'https://users-bank-data.onrender.com';
 
 export const TransferService = {
     async fetchByCardNumber(friendCardNumber: string): Promise<User> {

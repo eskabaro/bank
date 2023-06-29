@@ -2,7 +2,7 @@ import axios from "axios"
 import { GenerationUtils } from "@/utils/generation.utils"
 import type { IStatisticBlock, User } from "@/interfaces/data"
 
-axios.defaults.baseURL = 'http://localhost:4200'
+axios.defaults.baseURL = 'https://users-bank-data.onrender.com'
 
 export const TransactionService = {
     async topUp(amount: number, id: string, currentBalance: number, infoType: string, blocks: IStatisticBlock[], income: number) {
