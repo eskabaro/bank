@@ -1,16 +1,11 @@
 const jsonServer = require("json-server")
 const server = jsonServer.create()
+const router = jsonServer.router("server/db.json")
 
-const middlewares = jsonServer.defaults();
-
+const middlewares = jsonServer.defaults()
 server.use(middlewares)
-
-server.use(
- jsonServer.rewriter({
-  "/api/*": "/$1",
- })
-)
+server.use("/server", router)
 
 server.listen(4200, () => {
- console.log("JSON Server is running")
+  console.log("JSON Server is running")
 })
