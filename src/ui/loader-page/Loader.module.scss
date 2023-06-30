@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+
+.wrapper__load {
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(163, 163, 163, .1);
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 10;
+
+   &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 5px;
+      width: 50%;
+      background-color: $color-green;
+      animation: load 1s infinite;
+
+      @keyframes load {
+         0% {
+            left: 0;
+            width: 0;
+         }
+
+         50% {
+            transform: translate(-50%);
+            left: 50%;
+            width: 50%;
+         }
+
+         100% {
+            left: 100%;
+            width: 0%;
+         }
+      }
+   }
+}

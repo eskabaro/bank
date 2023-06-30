@@ -8,7 +8,7 @@ const Error = ({
    reset: () => void
 }) => {
    return (
-      <div>
+      <div style={{ textAlign: 'center' }}>
          <h2>Something went wrong!</h2>
          <span>{error.message}</span>
          <button

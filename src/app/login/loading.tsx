@@ -1,5 +1,5 @@
-const Loading = () => {
-   return <h1>Loading...</h1>
-}
+import { Loader } from "@/ui/loader-page"
+
+const Loading = () => <Loader />
 
 export default Loading
